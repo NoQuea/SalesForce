@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static tests.BaseTest.BASE_URL;
 
 public class LoginPage extends BasePage {
     public static final By USERNAME_INPUT = By.id("username");
@@ -16,7 +15,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isPageOpen() {
-        return isExit(LOGIN_BUTTON);
+        return isExist(LOGIN_BUTTON);
     }
 
 

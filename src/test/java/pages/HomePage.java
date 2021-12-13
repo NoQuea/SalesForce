@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static tests.BaseTest.BASE_URL;
+
 
 public class HomePage extends BasePage {
     public static final By MENU_LINK = By.xpath("//span[@class='slds-truncate'][text()='Home']");
@@ -18,6 +18,6 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageOpen() {
-        return isExit(MENU_LINK);
+        return isExist(MENU_LINK);
     }
 }
