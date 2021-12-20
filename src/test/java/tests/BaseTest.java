@@ -19,6 +19,10 @@ public abstract class BaseTest {
     AccountListPage accountListPage;
     AccountModalPage accountModalPage;
     AccountDetailsPage accountDetailsPage;
+    ContactListPage contactListPage;
+    ContactModalPage contactModalPage;
+    ContactDetailsPage contactDetailsPage;
+
 
 
     @BeforeMethod
@@ -32,9 +36,14 @@ public abstract class BaseTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+
         accountListPage = new AccountListPage(driver);
         accountModalPage = new AccountModalPage(driver);
         accountDetailsPage = new AccountDetailsPage(driver);
+
+        contactListPage = new ContactListPage(driver);
+        contactModalPage = new ContactModalPage(driver);
+        contactDetailsPage = new ContactDetailsPage(driver);
 
     }
 

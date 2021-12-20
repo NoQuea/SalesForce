@@ -7,7 +7,7 @@ public class AccountDetailsPage extends BasePage {
 
     public static final By DETAILS_LINK = By.xpath("//a[@id='detailTab__item']");
     String fieldValue = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text";
-    String fieldValueLink = "//div[@class='slds-grid slds-size_1-of-1 label-stacked']//a[text()='www.onliner.by']";
+    String fieldValueLink = "//records-lwc-detail-panel/ancestor::div//force-record-layout-item//a[text()='%s']";
 
 
     //records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text
@@ -26,7 +26,7 @@ public class AccountDetailsPage extends BasePage {
     }
 
     public String getFieldByLink(String fieldLink){
-        return driver.findElement(By.xpath(fieldValueLink)).getText();
+        return driver.findElement(By.xpath(String.format(fieldValueLink, fieldLink))).getText();
     }
 
 }
