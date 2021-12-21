@@ -18,7 +18,6 @@ public class ContactModalPage extends BasePage {
     }
 
     public ContactDetailsPage create(Contact contact){
-
         return clickSave();
     }
 

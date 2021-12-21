@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class TextArea {
 
-        String textAreaLocator = "//div[contains(@class, 'modal-body')]//label[text()='%s']/ancestor::force-record-layout-text-area[contains(@data-input-element-id, 'input-field')]//textarea " +
-                "| //div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//textarea";
+        String textAreaLocator = "//div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//textarea";
 
+        //div[contains(@class, 'modal-body')]//label[text()='%s']/ancestor::force-record-layout-text-area[contains(@data-input-element-id, 'input-field')]//textarea
         WebDriver driver;
         String label;
 

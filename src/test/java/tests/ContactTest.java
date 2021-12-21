@@ -15,5 +15,6 @@ public class ContactTest extends BaseTest{
                 .clickNew()
                 .isPageOpen();
         Assert.assertTrue(isContactModalOpen, "Pop up wasn't opened");
+
     }
 }

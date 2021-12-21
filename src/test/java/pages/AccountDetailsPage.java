@@ -7,10 +7,12 @@ public class AccountDetailsPage extends BasePage {
 
     public static final By DETAILS_LINK = By.xpath("//a[@id='detailTab__item']");
     String fieldValue = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text";
-    String fieldValueLink = "//records-lwc-detail-panel/ancestor::div//force-record-layout-item//a[text()='%s']";
-
-
-    //records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text
+    String fieldValueWebsite = "//records-lwc-detail-panel//span[text()='%s']//ancestor::force-record-layout-item//lightning-formatted-url/a";
+    String fieldValuePhoneFax = "//records-lwc-detail-panel//span[text()='%s']//ancestor::force-record-layout-item//lightning-formatted-phone/a";
+    String fieldValueParent = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//a//span";
+    String fieldValueEmployees = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//span//lightning-formatted-number";
+    String ButtonEditAddress = "//force-record-layout-section//span[text()='%s']/ancestor::force-record-layout-item//span[@class='inline-edit-trigger-icon slds-button__icon slds-button__icon_hint']";
+    String fieldValueAddress = "//lightning-input-address//label[text()='%s']/ancestor::lightning-input[contains(@class, 'slds-form-element')]//input";
 
     public AccountDetailsPage(WebDriver driver) {
         super(driver);
@@ -25,8 +27,18 @@ public class AccountDetailsPage extends BasePage {
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 
-    public String getFieldByLink(String fieldLink){
-        return driver.findElement(By.xpath(String.format(fieldValueLink, fieldLink))).getText();
+    public String getFieldByPhoneFax(String fieldName){
+        return driver.findElement(By.xpath(String.format(fieldValuePhoneFax, fieldName))).getText();
+    }
+
+    public String getFieldByWebsite(String fieldName){
+        return driver.findElement(By.xpath(String.format(fieldValueWebsite, fieldName))).getText();
+    }
+    public String getFieldByParent(String fieldName){
+        return driver.findElement(By.xpath(String.format(fieldValueParent, fieldName))).getText();
+    }
+    public String getFieldByEmployees(String fieldName){
+        return driver.findElement(By.xpath(String.format(fieldValueEmployees, fieldName))).getText();
     }
 
 }
