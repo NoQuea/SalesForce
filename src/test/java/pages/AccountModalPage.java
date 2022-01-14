@@ -3,6 +3,7 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,20 +17,20 @@ public class AccountModalPage extends BasePage{
     }
 
     @Override
+    @Step("Проверка на то что мы на ходимся в окне заполнения Account")
     public boolean isPageOpen() {
         return isExist(MODAL_TITLE);
     }
 
+    @Step("Создание аккаунта")
     public AccountDetailsPage create(Account account) {
 
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Website").write(account.getWebSite());
         new DropDown(driver, "Type").selectOption(account.getType());
         new Input(driver, "Phone").write(account.getPhone());
-        new Input(driver, "Fax").write(account.getFax());
         new Input(driver, "Parent Account").selectOptionForParent(account.getParentAccount());
         new Input(driver, "Employees").write(account.getEmployees());
-        new Input(driver, "Annual Revenue").write(account.getAnnualRevenue());
         new DropDown(driver, "Industry").selectOption(account.getIndustry());
         new TextArea(driver, "Description").writeArea(account.getDescription());
         new TextArea(driver, "Billing Street").writeArea(account.getBillingStreet());
@@ -45,7 +46,7 @@ public class AccountModalPage extends BasePage{
 
         return clickSave();
     }
-
+    @Step("Нажатие на кнопку Save")
     public AccountDetailsPage clickSave(){
         driver.findElement(SAVE_BUTTON).click();
         return new AccountDetailsPage(driver);

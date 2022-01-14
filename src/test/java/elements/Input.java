@@ -12,7 +12,7 @@ public class Input {
     String inputLocatorContact = "//div[contains(@class, 'modal-body')]//label[text()='%s']/ancestor::div[contains(@class, 'slds-grid')]//input";
 
     String inputForParent = "//div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//input";
-    String inputDownForParent = "//div[@title='TestAccountName']";
+    String inputDownForParent = "//div[@title='Test']";
 
     public Input(WebDriver driver, String label) {
         this.driver = driver;

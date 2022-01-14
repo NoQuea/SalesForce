@@ -1,7 +1,9 @@
 package tests;
 
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertTrue;
 
 public class ContactTest extends BaseTest{
 
@@ -14,7 +16,7 @@ public class ContactTest extends BaseTest{
                 .open()
                 .clickNew()
                 .isPageOpen();
-        Assert.assertTrue(isContactModalOpen, "Pop up wasn't opened");
+        assertTrue(isContactModalOpen, "Pop up wasn't opened");
 
     }
 }

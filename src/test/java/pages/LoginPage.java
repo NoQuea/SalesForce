@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,11 +15,12 @@ public class LoginPage extends BasePage {
     }
 
     @Override
+    @Step("Проверка на то что мы на ходимся на странице Login")
     public boolean isPageOpen() {
         return isExist(LOGIN_BUTTON);
     }
 
-
+    @Step("Открытие страницы Login")
     public void open() {
         driver.get(BASE_URL);
     }
