@@ -1,9 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static tests.BaseTest.BASE_URL;
 
 public class LoginPage extends BasePage {
     public static final By USERNAME_INPUT = By.id("username");
@@ -15,11 +15,12 @@ public class LoginPage extends BasePage {
     }
 
     @Override
+    @Step("Проверка на то что мы на ходимся на странице Login")
     public boolean isPageOpen() {
-        return isExit(LOGIN_BUTTON);
+        return isExist(LOGIN_BUTTON);
     }
 
-
+    @Step("Открытие страницы Login")
     public void open() {
         driver.get(BASE_URL);
     }
@@ -30,4 +31,9 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
+    public void fullLogin(String userName, String password) {
+        driver.findElement(USERNAME_INPUT).sendKeys(userName);
+        driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        driver.findElement(LOGIN_BUTTON).click();
+    }
 }

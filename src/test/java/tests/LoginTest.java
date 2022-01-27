@@ -1,7 +1,9 @@
 package tests;
 
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertTrue;
 
 
 public class LoginTest extends BaseTest {
@@ -10,9 +12,9 @@ public class LoginTest extends BaseTest {
     public void login() {
         loginPage.open();
         loginPage.isPageOpen();
-        loginPage.login("pasha_vorobyov-una5@force.com", "1234qqqwwww");
+        loginPage.login("pavell123-0a1x@force.com", "1234qqqwwww");
 
-        Assert.assertTrue(homePage.isPageOpen(), "Page HomePage wasn't opened");
+        assertTrue(homePage.isPageOpen(), "Page HomePage wasn't opened");
 
     }
 
