@@ -9,6 +9,11 @@ import static org.testng.Assert.assertTrue;
 
 public class AccountTest extends BaseTest{
     @Test
+    public void createTestAccount(){
+
+    }
+
+    @Test
     public void accountShouldBeCreated(){
 
 
