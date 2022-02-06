@@ -5,9 +5,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public abstract class BasePage {
 
-    public static final String BASE_URL = "https://tms223.my.salesforce.com";
     public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
     public static final By SAVE_BUTTON = By.xpath("//button[@title='Save']");
 

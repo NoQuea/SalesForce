@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
+
 public class ContactListPage extends BasePage {
 
     public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
@@ -17,7 +19,7 @@ public class ContactListPage extends BasePage {
     }
 
     public ContactListPage open() {
-        driver.get(BASE_URL + "lightning/o/Contact/list");
+        driver.get(baseUrl + "lightning/o/Contact/list");
         return this;
     }
 

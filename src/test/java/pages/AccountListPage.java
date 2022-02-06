@@ -4,6 +4,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
+
 
 public class AccountListPage extends BasePage {
 
@@ -21,7 +23,7 @@ public class AccountListPage extends BasePage {
 
     @Step("Открытие страницы Accounts")
     public AccountListPage open() {
-        driver.get(BASE_URL + "lightning/o/Account/list");
+        driver.get(baseUrl + "lightning/o/Account/list");
         return this;
     }
 

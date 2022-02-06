@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 
 
 public class HomePage extends BasePage {
@@ -15,7 +16,7 @@ public class HomePage extends BasePage {
 
     @Step("Открытие страницы Home")
     public void open() {
-        driver.get(BASE_URL + "/lightning/page/home");
+        driver.get(baseUrl + "/lightning/page/home");
     }
 
     @Override

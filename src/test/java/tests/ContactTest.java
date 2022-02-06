@@ -10,7 +10,7 @@ public class ContactTest extends BaseTest{
     @Test
     public void contactShouldBeCreated(){
         loginPage.open();
-        loginPage.login("pavell123-0a1x@force.com", "1234qqqwwww");
+        loginPage.login(email, password);
 
         boolean isContactModalOpen = contactListPage
                 .open()
