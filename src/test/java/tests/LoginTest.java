@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     public void login() {
         loginPage.open();
         loginPage.isPageOpen();
-        loginPage.login("pavell123-0a1x@force.com", "1234qqqwwww");
+        loginPage.login(email, password);
 
         assertTrue(homePage.isPageOpen(), "Page HomePage wasn't opened");
 
