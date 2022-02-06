@@ -2,10 +2,11 @@ package tests;
 
 
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
-public class ContactTest extends BaseTest{
+public class ContactTest extends BaseTest {
 
     @Test
     public void contactShouldBeCreated(){
