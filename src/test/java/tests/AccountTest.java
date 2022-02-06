@@ -18,7 +18,7 @@ public class AccountTest extends BaseTest{
 
 
         loginPage.open();
-        loginPage.login("pavel123-211q@force.com", "1234qqqwwww");
+        loginPage.login(email, password);
 
 
         boolean isAccountModalOpen = accountListPage
