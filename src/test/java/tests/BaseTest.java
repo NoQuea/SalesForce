@@ -1,14 +1,14 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
+import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +23,7 @@ public abstract class BaseTest {
     ContactListPage contactListPage;
     ContactModalPage contactModalPage;
     ContactDetailsPage contactDetailsPage;
-
+    String email, password;
 
 
     @BeforeMethod
@@ -46,6 +46,10 @@ public abstract class BaseTest {
         contactListPage = new ContactListPage(driver);
         contactModalPage = new ContactModalPage(driver);
         contactDetailsPage = new ContactDetailsPage(driver);
+
+        Configuration.baseUrl = System.getenv().getOrDefault("SALESFORCE_URL", PropertyReader.getProperty("salesforce.url"));
+        email = System.getenv().getOrDefault("SALESFORCE_EMAIL", PropertyReader.getProperty("salesforce.email"));
+        password = System.getenv().getOrDefault("SALESFORCE_PASSWORD", PropertyReader.getProperty("salesforce.password"));
 
     }
 
