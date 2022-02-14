@@ -1,16 +1,15 @@
 #CHECKLIST
 <h3>Login page</h3>
 1. User login with correct data<br/>
-2. User login with correct login but no password <br/>
-3. User login with correct password but no login<br/>
+2. User login with login but no password <br/>
 4. User login with incorrect data<br/>
-5. Checking the functionality of the "Forgot your password?" hyperlink<br/>
+5. Checking the clickability of the "Forgot your password?" hyperlink<br/>
 <h3>Header</h3>
-6. Checking the functionality of the "Subscribe Now" hyperlink<br/>
-7. Checking the functionality of the "Leave Feedback" hyperlink<br/>
+6. Checking the clickability of the "Subscribe Now" hyperlink<br/>
+7. Checking the clickability of the "Leave Feedback" hyperlink<br/>
 8. Checking the operation of the drop-down list "Check Out Top Features"<br/>
-9. Checking the functionality of the "Get Started" hyperlink<br/>
-10. Checking the functionality of the "Setup" icon<br/>
+9. Checking the clickability of the "Get Started" hyperlink<br/>
+10. Checking the clickability of the "Setup" icon<br/>
 11. Check if the "View Profile" icon is working<br/>
 12. Make sure the "Learning Paths" icon works<br/>
 13. Checking the clickability of the "Global Actions" icon<br/>

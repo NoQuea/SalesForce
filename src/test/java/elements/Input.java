@@ -24,10 +24,10 @@ public class Input {
         driver.findElement(By.xpath(String.format(inputLocatorAccount, this.label))).sendKeys(text);
     }
 
-    public void selectOptionForParent(String option) {
-        System.out.printf("Select option '%s' into input with label '%s' \n", option, this.label);
-        driver.findElement(By.xpath(String.format(inputForParent, this.label))).click();
-        driver.findElement(By.xpath(String.format(inputDownForParent, option))).click();
-    }
+//    public void selectOptionForParent(String option) {
+//        System.out.printf("Select option '%s' into input with label '%s' \n", option, this.label);
+//        driver.findElement(By.xpath(String.format(inputForParent, this.label))).click();
+//        driver.findElement(By.xpath(String.format(inputDownForParent, option))).click();
+//    }
 
 }

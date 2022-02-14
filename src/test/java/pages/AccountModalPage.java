@@ -29,7 +29,7 @@ public class AccountModalPage extends BasePage{
         new Input(driver, "Website").write(account.getWebSite());
         new DropDown(driver, "Type").selectOption(account.getType());
         new Input(driver, "Phone").write(account.getPhone());
-        new Input(driver, "Parent Account").selectOptionForParent(account.getParentAccount());
+        new DropDown(driver, "Parent Account").selectOptionParent(account.getParentAccount());
         new Input(driver, "Employees").write(account.getEmployees());
         new DropDown(driver, "Industry").selectOption(account.getIndustry());
         new TextArea(driver, "Description").writeArea(account.getDescription());

@@ -5,11 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class DropDown {
     String dropDownLocator = "//div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]/div[@class='uiMenu']";
-            //label[text()='%s']/ancestor::lightning-combobox//div//input
-
     String optionsLocator = "//div[contains(@class, 'visible')]//a[text()='%s']";
-            //label[text()='%s']/ancestor::lightning-combobox//div[contains(@class, 'slds-is-open')]"
-
+    String dropDownLocatorParentAccount = "//div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//input";
+    String optionsLocatorParentAccount = "//div[@title='%s']";
     String dropdownLocatorForContactModalFieldAccountName = "//label[text()='%s']/ancestor::lightning-grouped-combobox//div//input";
     String optionLocatorForContactFieldAccountName = "//label[text()='%s']/ancestor::lightning-grouped-combobox//div[contains(@class, 'slds-is-open')]";
 
@@ -29,5 +27,10 @@ public class DropDown {
         driver.findElement(By.xpath(String.format(optionsLocator, option))).click();
     }
 
+    public void selectOptionParent(String option) {
+        System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
+        driver.findElement(By.xpath(String.format(dropDownLocatorParentAccount, this.label))).click();
+        driver.findElement(By.xpath(String.format(optionsLocatorParentAccount, option))).click();
+    }
 
 }
