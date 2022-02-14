@@ -11,6 +11,8 @@ public class LoginPage extends BasePage {
     public static final By USERNAME_INPUT = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BUTTON = By.id("Login");
+    public static final By ERROR_MESSAGE = By.xpath("//div[@id='error']");
+    public static final By FORGOT_YOUR_PASSWORD_LINK = By.xpath("//a[@id='forgot_password_link']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -33,4 +35,11 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
+    public String getErrorMessage(){
+        return driver.findElement(ERROR_MESSAGE).getText();
+    }
+
+    public void clickForgotYourPasswordLink(){
+        driver.findElement(FORGOT_YOUR_PASSWORD_LINK).click();
+    }
 }

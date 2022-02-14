@@ -7,25 +7,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import pages.*;
-import tests.base.TestListener;
+
 import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners(TestListener.class)
+//@Listeners(TestListener.class)
 public abstract class BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
-    HomePage homePage;
+    HomeSalesPage homePage;
     AccountListPage accountListPage;
     AccountModalPage accountModalPage;
     AccountDetailsPage accountDetailsPage;
     ContactListPage contactListPage;
     ContactModalPage contactModalPage;
     ContactDetailsPage contactDetailsPage;
+    ForgotYourPasswordPage forgotYourPasswordPage;
     String email, password;
 
 
@@ -35,12 +35,13 @@ public abstract class BaseTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
+        homePage = new HomeSalesPage(driver);
+        forgotYourPasswordPage = new ForgotYourPasswordPage(driver);
 
         accountListPage = new AccountListPage(driver);
         accountModalPage = new AccountModalPage(driver);

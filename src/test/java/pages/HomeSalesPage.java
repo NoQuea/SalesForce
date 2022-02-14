@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 
+public class HomeSalesPage extends BasePage {
 
-public class HomePage extends BasePage {
-    public static final By MENU_LINK = By.xpath("//span[@class='slds-truncate'][text()='Home']");
+    public static final By TITLE_SALES = By.xpath("//span[@title='Sales']");
 
-    public HomePage(WebDriver driver) {
+    public HomeSalesPage(WebDriver driver) {
         super(driver);
     }
 
@@ -22,6 +22,8 @@ public class HomePage extends BasePage {
     @Override
     @Step("Проверка на то что мы на ходимся на странице Home")
     public boolean isPageOpen() {
-        return isExist(MENU_LINK);
+        return isExist(TITLE_SALES);
     }
+
+
 }
