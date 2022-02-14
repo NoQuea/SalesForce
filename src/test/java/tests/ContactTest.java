@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class ContactTest extends BaseTest{
+public class ContactTest extends BaseTest {
 
     @Test
     public void contactShouldBeCreated(){
