@@ -18,7 +18,7 @@ public abstract class BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
-    HomeSalesPage homePage;
+    HomeSalesPage homeSalesPage;
     AccountListPage accountListPage;
     AccountModalPage accountModalPage;
     AccountDetailsPage accountDetailsPage;
@@ -26,6 +26,8 @@ public abstract class BaseTest {
     ContactModalPage contactModalPage;
     ContactDetailsPage contactDetailsPage;
     ForgotYourPasswordPage forgotYourPasswordPage;
+    ViewProfilePage viewProfilePage;
+    SettingsPage settingsPage;
     String email, password;
 
 
@@ -40,8 +42,10 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        homePage = new HomeSalesPage(driver);
+        homeSalesPage = new HomeSalesPage(driver);
         forgotYourPasswordPage = new ForgotYourPasswordPage(driver);
+        viewProfilePage = new ViewProfilePage(driver);
+        settingsPage = new SettingsPage(driver);
 
         accountListPage = new AccountListPage(driver);
         accountModalPage = new AccountModalPage(driver);

@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
         loginPage.isPageOpen();
         loginPage.login(email, password);
 
-        assertTrue(homePage.isPageOpen(), "Page HomePage wasn't opened");
+        assertTrue(homeSalesPage.isPageOpen(), "Page HomePage wasn't opened");
     }
 
     @Test
