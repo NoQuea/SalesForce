@@ -1,7 +1,9 @@
 #CHECKLIST
 <h3>Login page</h3>
-1. User login with correct data
-2. User login with correct login but no password
+1. User login with correct data  
+  
+2. User login with correct login but no password  
+  
 3. User login with correct password but no login
 4. User login with incorrect data
 5. Checking the functionality of the "Forgot your password?" hyperlink
