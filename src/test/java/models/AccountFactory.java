@@ -10,7 +10,7 @@ public class AccountFactory {
     public static Account get(){
         return Account.builder()
                 .accountName(faker.pokemon().name())
-                .parentAccount("test")
+                .parentAccount("TestAccountCheck")
                 .phone(faker.phoneNumber().phoneNumber())
                 .webSite(faker.app().author())
                 .type("Investor")

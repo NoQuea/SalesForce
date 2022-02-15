@@ -10,10 +10,6 @@ import static org.testng.Assert.assertTrue;
 
 @Listeners
 public class AccountTest extends BaseTest {
-    @Test
-    public void createTestAccount(){
-
-    }
 
     @Test
     public void accountShouldBeCreated(){
@@ -38,11 +34,11 @@ public class AccountTest extends BaseTest {
         assertTrue(isDetailsPageOpen, "Details page wasn't opened");
 
         assertEquals(accountDetailsPage.getFieldByName("Account Name"),account.getAccountName(),"");
-        assertEquals(accountDetailsPage.getFieldByWebsite("Website"),account.getWebSite(),"");
+        assertEquals(accountDetailsPage.getFieldByName("Website"),account.getWebSite(),"");
         assertEquals(accountDetailsPage.getFieldByName("Type"),account.getType(),"");
-        assertEquals(accountDetailsPage.getFieldByPhoneFax("Phone"),account.getPhone(),"");
-        assertEquals(accountDetailsPage.getFieldByParent("Parent Account"),account.getParentAccount(),"");
-        assertEquals(accountDetailsPage.getFieldByEmployees("Employees"),account.getEmployees(),"");
+        assertEquals(accountDetailsPage.getFieldByName("Phone"),account.getPhone(),"");
+        assertEquals(accountDetailsPage.getFieldByParentAcc("Parent Account"),account.getParentAccount(),"");
+        assertEquals(accountDetailsPage.getFieldByName("Employees"),account.getEmployees(),"");
         assertEquals(accountDetailsPage.getFieldByName("Industry"),account.getIndustry(),"");
 //        assertEquals(accountDetailsPage.getFieldByName("Billing Street"),account.getBillingStreet(),"");
 //        assertEquals(accountDetailsPage.getFieldByName("Shipping Street"),account.getShippingStreet(),"");
