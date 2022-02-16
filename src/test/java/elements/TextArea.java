@@ -3,13 +3,10 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TextArea {
+public class TextArea extends BaseElements{
 
     String textAreaLocator = "//div[contains(@class, 'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//textarea";
     String textAreaLocatorForContactAndLead = "//div[contains(@class, 'modal-body')]//label[text()='%s']/ancestor::div[contains(@class, 'slds-grid')]//textarea";
-
-    WebDriver driver;
-    String label;
 
     public TextArea(WebDriver driver, String label) {
         this.driver = driver;

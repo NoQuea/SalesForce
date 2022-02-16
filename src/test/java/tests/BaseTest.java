@@ -26,13 +26,16 @@ public abstract class BaseTest {
     ContactListPage contactListPage;
     ContactModalPage contactModalPage;
     ContactDetailsPage contactDetailsPage;
+    LeadListPage leadListPage;
+    LeadModalPage leadModalPage;
+    LeadDetailsPage leadDetailsPage;
     ForgotYourPasswordPage forgotYourPasswordPage;
     ViewProfilePage viewProfilePage;
     SettingsPage settingsPage;
     String email, password;
 
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp () {
 
         WebDriverManager.chromedriver().setup();
@@ -56,6 +59,10 @@ public abstract class BaseTest {
         contactModalPage = new ContactModalPage(driver);
         contactDetailsPage = new ContactDetailsPage(driver);
 
+        leadDetailsPage = new LeadDetailsPage(driver);
+        leadListPage = new LeadListPage(driver);
+        leadModalPage = new LeadModalPage(driver);
+
         Configuration.baseUrl = System.getenv().getOrDefault("SALESFORCE_URL", PropertyReader.getProperty("salesforce.url"));
         email = System.getenv().getOrDefault("SALESFORCE_EMAIL", PropertyReader.getProperty("salesforce.email"));
         password = System.getenv().getOrDefault("SALESFORCE_PASSWORD", PropertyReader.getProperty("salesforce.password"));
@@ -66,7 +73,6 @@ public abstract class BaseTest {
     public void tearDown () {
         driver.quit();
     }
-
 }
 
 

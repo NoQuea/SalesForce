@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class AccountTest extends BaseTest {
 
     @Test(description = "The account must be created and checked for compliance with the entered data")
-    public void accountShouldBeCreated(){
+    public void accountShouldBeCreated() throws InterruptedException {
 
         loginPage.open();
         loginPage.login(email, password);

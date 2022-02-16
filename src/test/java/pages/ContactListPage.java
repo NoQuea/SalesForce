@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 
 public class ContactListPage extends BasePage {
 
-    public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
+    public static final By BREADCRUMBS_LABEL = By.xpath("//span[@class='slds-var-p-right_x-small']");
 
     public ContactListPage(WebDriver driver) {
         super(driver);

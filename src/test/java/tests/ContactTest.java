@@ -10,8 +10,8 @@ import static org.testng.Assert.assertTrue;
 
 public class ContactTest extends BaseTest {
 
-    @Test
-    public void contactShouldBeCreated() {
+    @Test(description = "The lead must be created and checked for compliance with the entered data")
+    public void contactShouldBeCreated() throws InterruptedException {
         loginPage.open();
         loginPage.login(email, password);
 
