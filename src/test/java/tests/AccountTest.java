@@ -11,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 @Listeners
 public class AccountTest extends BaseTest {
 
-    @Test
+    @Test(description = "The account must be created and checked for compliance with the entered data")
     public void accountShouldBeCreated(){
 
         loginPage.open();
@@ -37,23 +37,15 @@ public class AccountTest extends BaseTest {
         assertEquals(accountDetailsPage.getFieldByName("Website"),account.getWebSite(),"");
         assertEquals(accountDetailsPage.getFieldByName("Type"),account.getType(),"");
         assertEquals(accountDetailsPage.getFieldByName("Phone"),account.getPhone(),"");
-        assertEquals(accountDetailsPage.getFieldByParentAcc("Parent Account"),account.getParentAccount(),"");
+        assertEquals(accountDetailsPage.getFieldByParent("Parent Account"),account.getParentAccount(),"");
         assertEquals(accountDetailsPage.getFieldByName("Employees"),account.getEmployees(),"");
         assertEquals(accountDetailsPage.getFieldByName("Industry"),account.getIndustry(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Billing Street"),account.getBillingStreet(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Shipping Street"),account.getShippingStreet(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Billing City"),account.getBillingCity(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Billing State/Province"),account.getBillingState(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Shipping City"),account.getShippingCity(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Shipping State/Province"),account.getShippingState(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Billing Zip/Postal Code"),account.getBillingZip(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Billing Country"),account.getBillingCountry(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Shipping Zip/Postal Code"),account.getShippingZip(),"");
-//        assertEquals(accountDetailsPage.getFieldByName("Shipping Country"),account.getShippingCountry(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Billing Street"),
+        assertEquals(accountDetailsPage.getFieldByName("Billing Address"),
                 String.format(account.getBillingStreet() + "\n" + account.getBillingCity() + ", " + account.getBillingState() + " " + account.getBillingZip() + "\n" + account.getBillingCountry()),
                 "Адресс неверный");
-
+        assertEquals(accountDetailsPage.getFieldByName("Shipping Address"),
+                String.format(account.getShippingStreet() + "\n" + account.getShippingCity() + ", " + account.getShippingState() + " " + account.getShippingZip() + "\n" + account.getShippingCountry()),
+                "Адресс неверный");
 
     }
 }

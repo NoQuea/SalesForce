@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,9 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
-    public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
-    public static final By SAVE_BUTTON = By.xpath("//button[@title='Save']");
-
+    public static final By NEW_BUTTON = By.xpath("//ancestor::ul[contains(@class, 'slds-m-left--xx-small oneActionsRibbon forceActionsContainer')]//a[@title='New']");
+    public static final By SAVE_ACCOUNT_BUTTON = By.xpath("//button[@title='Save']");
+    public static final By SAVE_BUTTON = By.xpath("//button[text()='Save']");
+    public static final By DETAILS_LINK = By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//li[@title='Details']");
 
     WebDriver driver;
     WebDriverWait wait;

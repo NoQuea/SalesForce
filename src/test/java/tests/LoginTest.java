@@ -8,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(description = "Entering a valid email and password")
     public void validEmailAndPass() {
         loginPage.open();
         loginPage.isPageOpen();
@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
         assertTrue(homeSalesPage.isPageOpen(), "Page HomePage wasn't opened");
     }
 
-    @Test
+    @Test(description = "Enter a valid email, do not enter a password")
     public void validEmailAndNoPassword() {
         loginPage.open();
         loginPage.isPageOpen();
@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest {
         assertEquals(loginPage.getErrorMessage(), "Please enter your password.", "");
     }
 
-    @Test
+    @Test(description = "Entering incorrect data")
     public void incorrectData() {
         loginPage.open();
         loginPage.isPageOpen();
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
         assertEquals(loginPage.getErrorMessage(), "Please check your username and password. If you still can't log in, contact your Salesforce administrator.", "");
     }
 
-    @Test
+    @Test(description = "Click on the link 'Forgot Your Password?' and check the transition to this page")
     public void clickForgotYourPassword() {
         loginPage.open();
         loginPage.isPageOpen();

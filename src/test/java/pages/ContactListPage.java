@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,11 +19,13 @@ public class ContactListPage extends BasePage {
         return isExist(BREADCRUMBS_LABEL);
     }
 
+    @Step("Открытие страницы Contacts")
     public ContactListPage open() {
         driver.get(baseUrl + "lightning/o/Contact/list");
         return this;
     }
 
+    @Step("Нажатие на кнопку New")
     public ContactModalPage clickNew() {
         driver.findElement(NEW_BUTTON).click();
         return new ContactModalPage(driver);
