@@ -2,19 +2,22 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.*;
 
 import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
-//@Listeners(TestListener.class)
+@Log4j2
+@Listeners(TestListener.class)
 public abstract class BaseTest {
 
     WebDriver driver;

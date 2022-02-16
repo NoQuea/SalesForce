@@ -1,9 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+@Log4j2
 public abstract class BasePage {
 
     public static final By NEW_BUTTON = By.xpath("//ancestor::ul[contains(@class, 'slds-m-left--xx-small oneActionsRibbon forceActionsContainer')]//a[@title='New']");

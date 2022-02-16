@@ -1,12 +1,13 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 
-
+@Log4j2
 public class LoginPage extends BasePage {
     public static final By USERNAME_INPUT = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");

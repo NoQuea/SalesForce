@@ -4,11 +4,12 @@ import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+@Log4j2
 public class ContactModalPage extends BasePage {
 
     public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'slds-modal__title slds-hyphenate slds-text-heading--medium')]");
