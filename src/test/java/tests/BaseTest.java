@@ -32,19 +32,29 @@ public abstract class BaseTest {
     LeadListPage leadListPage;
     LeadModalPage leadModalPage;
     LeadDetailsPage leadDetailsPage;
+    OpportunitiesListPage opportunitiesListPage;
+    OpportunitiesModalPage opportunitiesModalPage;
+    OpportunitiesDetailsPage opportunitiesDetailsPage;
     ForgotYourPasswordPage forgotYourPasswordPage;
     ViewProfileModalPage viewProfileModalPage;
     NotificationsModalPage notificationsModalPage;
     SetupModalPage setupModalPage;
     SalesforceHelpModalPage salesforceHelpModalPage;
     LearningPathsModalPage learningPathsModalPage;
-    GlobalActionsModalPage globalActionsModalPage;
+    CalendarModalPage calendarModalPage;
+    DashboardsModalPage dashboardsModalPage;
+    FilesModelPage filesModelPage;
+    ForecastsModalPage forecastsModalPage;
+    GroupsModalPage groupsModalPage;
+    NotesModalPage notesModalPage;
+    ReportsModalPage reportsModalPage;
+    TasksModalPage tasksModalPage;
     SettingsPage settingsPage;
     String email, password;
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp (ITestContext context, @Optional("chrome") String browser) {
+    public void setUp(ITestContext context, @Optional("chrome") String browser) {
 //        options.addArguments("--headless");
         log.info("start test");
         log.info(browser);
@@ -70,7 +80,14 @@ public abstract class BaseTest {
         setupModalPage = new SetupModalPage(driver);
         salesforceHelpModalPage = new SalesforceHelpModalPage(driver);
         learningPathsModalPage = new LearningPathsModalPage(driver);
-        globalActionsModalPage = new GlobalActionsModalPage(driver);
+        calendarModalPage = new CalendarModalPage(driver);
+        dashboardsModalPage = new DashboardsModalPage(driver);
+        filesModelPage = new FilesModelPage(driver);
+        forecastsModalPage = new ForecastsModalPage(driver);
+        groupsModalPage = new GroupsModalPage(driver);
+        notesModalPage = new NotesModalPage(driver);
+        reportsModalPage = new ReportsModalPage(driver);
+        tasksModalPage = new TasksModalPage(driver);
         settingsPage = new SettingsPage(driver);
 
         accountListPage = new AccountListPage(driver);
@@ -85,6 +102,10 @@ public abstract class BaseTest {
         leadListPage = new LeadListPage(driver);
         leadModalPage = new LeadModalPage(driver);
 
+        opportunitiesListPage = new OpportunitiesListPage(driver);
+        opportunitiesModalPage = new OpportunitiesModalPage(driver);
+        opportunitiesDetailsPage = new OpportunitiesDetailsPage(driver);
+
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
 
@@ -95,7 +116,7 @@ public abstract class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown () {
+    public void tearDown() {
         driver.quit();
     }
 }

@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
+import pages.HomeSalesPage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -21,6 +22,8 @@ public class HomeSalesTest extends BaseTest {
     public void enterUserSettings() {
         loginPage.open();
         loginPage.login(email, password);
+
+        homeSalesPage.isPageOpen();
         homeSalesPage.clickViewProfile();
         viewProfileModalPage.clickSettings();
 
@@ -31,6 +34,8 @@ public class HomeSalesTest extends BaseTest {
     public void logOut() {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
+
         homeSalesPage.clickViewProfile();
         viewProfileModalPage.clickLogOutLink();
 
@@ -41,6 +46,7 @@ public class HomeSalesTest extends BaseTest {
     public void notificationsShouldBeOpened() {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
 
         homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickNotifications();
@@ -51,6 +57,7 @@ public class HomeSalesTest extends BaseTest {
     public void setupShouldBeOpened() {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
 
         homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickSetup();
@@ -61,6 +68,7 @@ public class HomeSalesTest extends BaseTest {
     public void salesforceHelpShouldBeOpened() {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
 
         homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickSalesforceHelp();
@@ -71,10 +79,22 @@ public class HomeSalesTest extends BaseTest {
     public void learningPathsShouldBeOpened() {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
 
         homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickLearningPaths();
         assertTrue(learningPathsModalPage.isPageOpen(), "Learning Paths modal page doesn't open");
+    }
+
+    @Test
+    public void calendar() {
+        loginPage.open();
+        loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
+
+        homeSalesPage.clickThis();
+
+        assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
     }
 
 }

@@ -19,9 +19,9 @@ public class HomeSalesPage extends BasePage {
     public static final By NOTIFICATIONS = By.xpath("//span[@role='tooltip'][text()='Notifications']//ancestor::li");
     public static final By SETUP = By.xpath("//span[@role='tooltip'][text()='Setup']//ancestor::li");
     public static final By SALESFORCE_HELP = By.xpath("//span[@role='tooltip'][text()='Salesforce Help']//ancestor::li");
-    public static final By GLOBAL_ACTIONS = By.xpath("//lightning-icon[contains(@class, 'slds-icon-utility-add')]//lightning-primitive-icon//*[name()='svg']");
     public static final By LEARNING_PATHS = By.xpath("//span[@role='tooltip'][text()='Learning Paths']//ancestor::li");
     public static final By CLOSE_SUBSCRIBE_BUTTON = By.xpath("//section[@role='dialog']/button");
+    public static final By LINK_NAV_BAR = By.xpath("//a[@title='Calendar']");
 
     public HomeSalesPage(WebDriver driver) {
         super(driver);
@@ -62,6 +62,9 @@ public class HomeSalesPage extends BasePage {
     public void closeSubscribeButton() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(CLOSE_SUBSCRIBE_BUTTON).click();
+    }
+    public void clickThis(){
+        driver.findElement(LINK_NAV_BAR).click();
     }
 
 }
