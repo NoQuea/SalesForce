@@ -2,6 +2,7 @@ package elements;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,15 +40,19 @@ public class DropDown extends BaseElements{
 
     public void selectOptionParent(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(dropDownLocatorParentAccount)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorParentAccount, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocatorParentAccount, this.label))).click();
         driver.findElement(By.xpath(String.format(optionsLocatorParentAccount, option))).click();
     }
 
     public void selectOptionContactAndLead(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dropDownLocatorForContactsAndLeads)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))));
+        JavascriptExecutor js1 = (JavascriptExecutor) driver;
+        js1.executeScript("window.scrollBy(0,350)", "");
         driver.findElement(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,350)", "");
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForContactsAndLeads, option))).click();
     }
     public void selectOptionForContactsAccountNameAndReportsTo(String option) {

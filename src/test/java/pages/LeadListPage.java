@@ -15,19 +15,22 @@ public class LeadListPage extends BasePage{
     }
 
     @Override
-    @Step("Проверка на то что мы находимся на старнице Leads")
+    @Step("Checking that we are on the Leads page")
     public boolean isPageOpen() {
+        log.info("Checking that we are on the Leads page");
         return isExist(BREADCRUMBS_LABEL);
     }
 
-    @Step("Открытие страницы Leads")
+    @Step("Opening the Leads page")
     public LeadListPage open() {
-        driver.get(baseUrl + "lightning/o/Lead/list");
+        log.info("Opening the Leads page");
+        driver.get(baseUrl + "/lightning/o/Lead/list");
         return this;
     }
 
-    @Step("Нажатие на кнопку New")
+    @Step("Click on the 'New' button")
     public LeadListPage clickNew() {
+        log.info("Click on the 'New' button");
         driver.findElement(NEW_BUTTON).click();
         return new LeadListPage(driver);
     }

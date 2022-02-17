@@ -2,17 +2,16 @@ package tests;
 
 import models.Account;
 import models.AccountFactory;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-@Listeners
+
 public class AccountTest extends BaseTest {
 
     @Test(description = "The account must be created and checked for compliance with the entered data")
-    public void accountShouldBeCreated() throws InterruptedException {
+    public void accountShouldBeCreated() {
 
         loginPage.open();
         loginPage.login(email, password);

@@ -22,13 +22,14 @@ public class HomeSalesPage extends BasePage {
         super(driver);
     }
 
-    @Step("Открытие страницы Home")
+    @Step("Opening the Home page")
     public void open() {
+        log.info("Opening the Home page");
         driver.get(baseUrl + "/lightning/page/home");
     }
 
     @Override
-    @Step("Проверка на то что мы на ходимся на странице Home")
+    @Step("Checking that we are on the Home Sales page")
     public boolean isPageOpen() {
         return isExist(TITLE_SALES);
     }

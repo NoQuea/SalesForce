@@ -7,9 +7,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
 import pages.*;
 
 import utils.PropertyReader;
@@ -37,16 +41,24 @@ public abstract class BaseTest {
     SettingsPage settingsPage;
     String email, password;
 
-
+    @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp () {
-
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
+    public void setUp (ITestContext context, @Optional("chrome") String browser) {
 //        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        log.info("start test");
+        log.info(browser);
+
+        if (browser.contains("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-popup-blocking");
+            driver = new ChromeDriver(options);
+
+        } else if (browser.contains("edge")) {
+            WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
+        }
 
         loginPage = new LoginPage(driver);
         homeSalesPage = new HomeSalesPage(driver);
@@ -65,6 +77,9 @@ public abstract class BaseTest {
         leadDetailsPage = new LeadDetailsPage(driver);
         leadListPage = new LeadListPage(driver);
         leadModalPage = new LeadModalPage(driver);
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        context.setAttribute("driver", driver);
 
         Configuration.baseUrl = System.getenv().getOrDefault("SALESFORCE_URL", PropertyReader.getProperty("salesforce.url"));
         email = System.getenv().getOrDefault("SALESFORCE_EMAIL", PropertyReader.getProperty("salesforce.email"));

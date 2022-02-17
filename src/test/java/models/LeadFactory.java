@@ -24,7 +24,7 @@ public class LeadFactory {
                 .company(faker.company().name())
                 .industry("Banking")
                 .noOfEmployees(faker.number().digit())
-                .leadSource("Other")
+                .leadSource("Advertisement")
                 .street(faker.address().streetAddress())
                 .city(faker.address().city())
                 .stateProvince(faker.address().state())

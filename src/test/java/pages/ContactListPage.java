@@ -22,7 +22,7 @@ public class ContactListPage extends BasePage {
 
     @Step("Открытие страницы Contacts")
     public ContactListPage open() {
-        driver.get(baseUrl + "lightning/o/Contact/list");
+        driver.get(baseUrl + "/lightning/o/Contact/list");
         return this;
     }
 

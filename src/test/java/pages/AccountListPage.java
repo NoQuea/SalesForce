@@ -24,7 +24,7 @@ public class AccountListPage extends BasePage {
 
     @Step("Открытие страницы Accounts")
     public AccountListPage open() {
-        driver.get(baseUrl + "lightning/o/Account/list");
+        driver.get(baseUrl + "/lightning/o/Account/list");
         return this;
     }
 

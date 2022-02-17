@@ -15,17 +15,21 @@ public class LeadDetailsPage extends BasePage{
     }
 
     @Override
+    @Step("Checking that we are on the Lead Modal page")
     public boolean isPageOpen() {
+        log.info("Checking that we are on the Lead Details page");
         return isExist(DETAILS_LINK);
     }
 
-    @Step("Нажатие на кнопку Details")
+    @Step("Click on the 'Details' button")
     public LeadDetailsPage clickDetails(){
+        log.info("Click on the 'Details' button");
         driver.findElement(DETAILS_LINK).click();
         return this;
     }
-
+    @Step("Replacing words in fields")
     public String getFieldByName(String fieldName) {
+        log.info("Values are substituted in string format: {fieldName}");
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 }

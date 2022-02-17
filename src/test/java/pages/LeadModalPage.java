@@ -18,13 +18,15 @@ public class LeadModalPage extends BasePage {
     }
 
     @Override
+    @Step("Checking that we are on the Lead Modal page")
     public boolean isPageOpen() {
+        log.info("Checking that we are on the Lead Modal page");
         return isExist(MODAL_TITLE);
     }
 
     @Step("Entering data in the Lead fields")
     public LeadDetailsPage create(Lead lead) {
-
+        log.info("Entering data in the Lead fields");
         new DropDown(driver, "Lead Status").selectOptionContactAndLead(lead.getLeadStatus());
         new DropDown(driver, "Salutation").selectOptionContactAndLead(lead.getSalutation());
         new Input(driver, "Last Name").writeContactAndLead(lead.getLastName());
@@ -36,7 +38,6 @@ public class LeadModalPage extends BasePage {
         new Input(driver, "Email").writeContactAndLead(lead.getEmail());
         new Input(driver, "Phone").writeContactAndLead(lead.getPhone());
         new Input(driver, "Mobile").writeContactAndLead(lead.getMobile());
-        new DropDown(driver, "Rating").selectOptionContactAndLead(lead.getRating());
         new Input(driver, "Company").writeContactAndLead(lead.getCompany());
         new DropDown(driver, "Industry").selectOptionContactAndLead(lead.getIndustry());
         new Input(driver, "No. of Employees").writeContactAndLead(lead.getNoOfEmployees());
@@ -46,11 +47,13 @@ public class LeadModalPage extends BasePage {
         new Input(driver, "State/Province").writeContactAndLead(lead.getStateProvince());
         new Input(driver, "Zip/Postal Code").writeContactAndLead(lead.getZipPostalCode());
         new Input(driver, "Country").writeContactAndLead(lead.getCountry());
-
+        new DropDown(driver, "Rating").selectOptionContactAndLead(lead.getRating());
+        log.info("Click save");
         return clickSave();
     }
-
+    @Step("Click on the 'Save' button")
     public LeadDetailsPage clickSave() {
+        log.info("Click on the 'Save' button");
         driver.findElement(SAVE_BUTTON).click();
         return new LeadDetailsPage(driver);
     }

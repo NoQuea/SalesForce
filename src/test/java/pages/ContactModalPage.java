@@ -14,11 +14,13 @@ public class ContactModalPage extends BasePage {
 
     public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'slds-modal__title slds-hyphenate slds-text-heading--medium')]");
 
+
     public ContactModalPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
+    @Step("Checking that we are on the Contact Modal page")
     public boolean isPageOpen() {
         return isExist(MODAL_TITLE);
     }
@@ -26,6 +28,7 @@ public class ContactModalPage extends BasePage {
 
     @Step("Entering data in the Contact fields")
     public ContactDetailsPage create(Contact contact)  {
+        log.info("Entering data in the Contact fields");
         new Input(driver, "Last Name").writeContactAndLead(contact.getLastName());
         new DropDown(driver, "Salutation").selectOptionContactAndLead(contact.getSalutation());
         new Input(driver, "First Name").writeContactAndLead(contact.getFirstName());
@@ -45,10 +48,13 @@ public class ContactModalPage extends BasePage {
         new Input(driver, "Mailing State/Province").writeContactAndLead(contact.getMailingStateProvince());
         new Input(driver, "Mailing Country").writeContactAndLead(contact.getMailingCountry());
 
+        log.info("Click save");
         return clickSave();
     }
 
+    @Step("Click on the 'Save' button")
     public ContactDetailsPage clickSave() {
+        log.info("Click on the 'Save' button");
         driver.findElement(SAVE_BUTTON).click();
         return new ContactDetailsPage(driver);
     }
