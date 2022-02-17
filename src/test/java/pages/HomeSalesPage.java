@@ -1,12 +1,13 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
-
+@Log4j2
 public class HomeSalesPage extends BasePage {
 
     public static final By TITLE_SALES = By.xpath("//span[@title='Quarterly Performance']");
@@ -21,13 +22,14 @@ public class HomeSalesPage extends BasePage {
         super(driver);
     }
 
-    @Step("Открытие страницы Home")
+    @Step("Opening the Home page")
     public void open() {
+        log.info("Opening the Home page");
         driver.get(baseUrl + "/lightning/page/home");
     }
 
     @Override
-    @Step("Проверка на то что мы на ходимся на странице Home")
+    @Step("Checking that we are on the Home Sales page")
     public boolean isPageOpen() {
         return isExist(TITLE_SALES);
     }

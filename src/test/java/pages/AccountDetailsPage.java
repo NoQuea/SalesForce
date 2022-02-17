@@ -1,20 +1,15 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+@Log4j2
 public class AccountDetailsPage extends BasePage {
 
-    public static final By DETAILS_LINK = By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//li[@title='Details']");
-    String detailsLocator = "//div[@class='windowViewMode-normal oneContent active lafPageHost']//li[@title='Details']";
-    String fieldValue = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text";
-    String fieldValueWebsite = "//records-lwc-detail-panel//span[text()='%s']//ancestor::force-record-layout-item//lightning-formatted-url/a";
-    String fieldValuePhoneFax = "//records-lwc-detail-panel//span[text()='%s']//ancestor::force-record-layout-item//lightning-formatted-phone/a";
-    String fieldValueParent = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//a//span";
-    String fieldValueEmployees = "//records-lwc-detail-panel//span[text()='%s']/ancestor::force-record-layout-item//span//lightning-formatted-number";
-    String ButtonEditAddress = "//force-record-layout-section//span[text()='%s']/ancestor::force-record-layout-item//span[@class='inline-edit-trigger-icon slds-button__icon slds-button__icon_hint']";
-    String fieldValueAddress = "//lightning-input-address//label[text()='%s']/ancestor::lightning-input[contains(@class, 'slds-form-element')]//input";
+
+    String fieldValue = "//span[text()='%s']//ancestor::div[contains(@class, 'slds-form-element_edit')]//span[contains(@class, 'static slds-grow word-break')]";
+    String fieldValueParent = "//span[text()='%s']//ancestor::div[@class='slds-grid slds-size_1-of-1 label-inline']//a//span";
 
     public AccountDetailsPage(WebDriver driver) {
         super(driver);
@@ -28,7 +23,7 @@ public class AccountDetailsPage extends BasePage {
 
     @Step("Нажатие на кнопку Details")
     public AccountDetailsPage clickDetails(){
-       driver.findElement(By.xpath(detailsLocator)).click();
+       driver.findElement(DETAILS_LINK).click();
        return this;
     }
 
@@ -36,18 +31,8 @@ public class AccountDetailsPage extends BasePage {
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 
-    public String getFieldByPhoneFax(String fieldName){
-        return driver.findElement(By.xpath(String.format(fieldValuePhoneFax, fieldName))).getText();
-    }
-
-    public String getFieldByWebsite(String fieldName){
-        return driver.findElement(By.xpath(String.format(fieldValueWebsite, fieldName))).getText();
-    }
-    public String getFieldByParent(String fieldName){
+    public String getFieldByParent(String fieldName) {
         return driver.findElement(By.xpath(String.format(fieldValueParent, fieldName))).getText();
-    }
-    public String getFieldByEmployees(String fieldName){
-        return driver.findElement(By.xpath(String.format(fieldValueEmployees, fieldName))).getText();
     }
 
 }

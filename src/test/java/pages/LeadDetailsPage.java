@@ -5,31 +5,31 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 @Log4j2
-public class ContactDetailsPage extends BasePage {
+public class LeadDetailsPage extends BasePage{
 
     String fieldValue = "//span[text()='%s']//ancestor::div[contains(@class, 'slds-form-element_edit')]//span[contains(@class, 'static slds-grow word-break')]";
     String fieldValueForAccountNameAndReportsTo = "//span[text()='%s']//ancestor::div[@class='slds-grid slds-size_1-of-1 label-inline']//a//span";
 
-    public ContactDetailsPage(WebDriver driver) {
+    public LeadDetailsPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
+    @Step("Checking that we are on the Lead Modal page")
     public boolean isPageOpen() {
+        log.info("Checking that we are on the Lead Details page");
         return isExist(DETAILS_LINK);
     }
 
-    @Step("Нажатие на кнопку Details")
-    public ContactDetailsPage clickDetails(){
+    @Step("Click on the 'Details' button")
+    public LeadDetailsPage clickDetails(){
+        log.info("Click on the 'Details' button");
         driver.findElement(DETAILS_LINK).click();
         return this;
     }
-
+    @Step("Replacing words in fields")
     public String getFieldByName(String fieldName) {
+        log.info("Values are substituted in string format: {fieldName}");
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
-    public String getFieldByAccAndRep(String fieldName) {
-        return driver.findElement(By.xpath(String.format(fieldValueForAccountNameAndReportsTo, fieldName))).getText();
-    }
-
 }

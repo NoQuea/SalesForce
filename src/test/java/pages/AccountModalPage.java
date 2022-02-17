@@ -4,10 +4,11 @@ import elements.DropDown;
 import elements.Input;
 import elements.TextArea;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+@Log4j2
 public class AccountModalPage extends BasePage{
 
     public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'inlineTitle')]");
@@ -17,12 +18,12 @@ public class AccountModalPage extends BasePage{
     }
 
     @Override
-    @Step("Проверка на то что мы на ходимся в окне заполнения Account")
+    @Step("We check that we are in the Account filling window")
     public boolean isPageOpen() {
         return isExist(MODAL_TITLE);
     }
 
-    @Step("Создание аккаунта")
+    @Step("Entering data in the Account fields")
     public AccountDetailsPage create(Account account) {
 
         new Input(driver, "Account Name").write(account.getAccountName());
@@ -46,9 +47,9 @@ public class AccountModalPage extends BasePage{
 
         return clickSave();
     }
-    @Step("Нажатие на кнопку Save")
+    @Step("Clicking on the Save button")
     public AccountDetailsPage clickSave(){
-        driver.findElement(SAVE_BUTTON).click();
+        driver.findElement(SAVE_ACCOUNT_BUTTON).click();
         return new AccountDetailsPage(driver);
     }
 }

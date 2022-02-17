@@ -1,12 +1,13 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 
-
+@Log4j2
 public class AccountListPage extends BasePage {
 
     public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
@@ -23,7 +24,7 @@ public class AccountListPage extends BasePage {
 
     @Step("Открытие страницы Accounts")
     public AccountListPage open() {
-        driver.get(baseUrl + "lightning/o/Account/list");
+        driver.get(baseUrl + "/lightning/o/Account/list");
         return this;
     }
 

@@ -7,23 +7,27 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Contact {
+public class Lead {
+
+    String leadStatus;
     String salutation;
     String firstName;
     String middleName;
     String lastName;
     String suffix;
-    String accountName;
+    String webSite;
     String title;
     String email;
     String phone;
     String mobile;
-    String reportsTo;
-    String department;
-    String fax;
-    String mailingStreet;
-    String mailingCity;
-    String mailingStateProvince;
-    String mailingZipPostalCode;
-    String mailingCountry;
+    String rating;
+    String company;
+    String industry;
+    String noOfEmployees;
+    String leadSource;
+    String street;
+    String city;
+    String stateProvince;
+    String zipPostalCode;
+    String country;
 }
