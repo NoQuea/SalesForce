@@ -7,11 +7,16 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 @Log4j2
 public class AccountModalPage extends BasePage{
 
-    public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'inlineTitle')]");
+    public static final By MODAL_TITLE = By.xpath("//span[normalize-space()='Account Information']");
+    public static final By GENERIC_ERROR_AFTER_SAVE = By.xpath("//span[@class='genericError uiOutputText']");
 
     public AccountModalPage(WebDriver driver) {
         super(driver);
@@ -49,7 +54,11 @@ public class AccountModalPage extends BasePage{
     }
     @Step("Clicking on the Save button")
     public AccountDetailsPage clickSave(){
+        log.info("Clicking on the Save button");
         driver.findElement(SAVE_ACCOUNT_BUTTON).click();
         return new AccountDetailsPage(driver);
     }
+
+
+
 }

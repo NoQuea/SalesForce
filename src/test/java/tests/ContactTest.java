@@ -47,4 +47,23 @@ public class ContactTest extends BaseTest {
                 String.format(contact.getMailingStreet() + "\n" + contact.getMailingCity() + ", " + contact.getMailingStateProvince() + " " + contact.getMailingZipPostalCode() + "\n" + contact.getMailingCountry()),
                 "Адресс неверный");
     }
+
+    @Test(description = "Press the save button without entering data in the Contact fields")
+    public void pressTheSaveButtonWithoutEnteringDataInTheContactFields() {
+
+        loginPage.open();
+        loginPage.login(email, password);
+
+
+        boolean isContactModalOpen = contactListPage
+                .open()
+                .clickNew()
+                .isPageOpen();
+        assertTrue(isContactModalOpen, "Pop up wasn't opened");
+
+        contactModalPage.clickSaveForError();
+        assertTrue(contactModalPage.getErrorMassage(), "Massage is not corrert");
+
+
+    }
 }

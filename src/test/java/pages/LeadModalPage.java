@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 public class LeadModalPage extends BasePage {
 
     public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'slds-modal__title slds-hyphenate slds-text-heading--medium')]");
-
+    public static final By ERROR_ICON = By.xpath("//lightning-icon[contains(@title,'Error')]//lightning-primitive-icon//*[name()='svg']");
     public LeadModalPage(WebDriver driver) {
         super(driver);
     }
@@ -56,5 +56,17 @@ public class LeadModalPage extends BasePage {
         log.info("Click on the 'Save' button");
         driver.findElement(SAVE_BUTTON).click();
         return new LeadDetailsPage(driver);
+    }
+    @Step("Getting Error Massage after click Save button")
+    public boolean getErrorMassage(){
+        log.info("Getting Error Massage after click Save button");
+        return driver.findElement(ERROR_ICON).isDisplayed();
+    }
+    @Step("Clicking on the Save button")
+    public void clickSaveForError(){
+        log.info("Clicking on the Save button");
+        driver.findElement(SAVE_BUTTON).click();
+//        JavascriptExecutor executor = (JavascriptExecutor)driver;
+//        executor.executeScript("arguments[0].click();", driver.findElement(SAVE_BUTTON));
     }
 }

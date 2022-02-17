@@ -14,7 +14,7 @@
 9. Checking the clickability of the "Notifications" icon<br/>
 10. Checking the clickability of the "Salesforce Help" icon<br/>
 11. Entering the word "test" in the field "Search" (Pre-create a "test" account)<br/>
-    <h3>Application navigation bar</h3>
+
 12. Checking the clickability of the "Waffle" button<br/>
 13. Checking the clickability of the "Accounts" hyperlink<br/>
 14. Create an account by filling in all fields(Pre-create a "test" account)<br/>
@@ -30,4 +30,11 @@
 24. Checking the clickability of the "Groups" hyperlink<br/>
 25. Checking the clickability of the "Forecasts" hyperlink<br/>
 26. Checking the clickability of the "Files" hyperlink<br/>
-27. Checking the clickability of the drop-down list "More (List of letters, Quotes, Chatter)"<br/>
+27. Going to the Details page after creating an Account
+28. Going to the Details page after creating a Contact
+29. Going to the Details page after creating a Lead
+30. Checking the entered data after creating an Account
+31. Checking the entered data after creating a Contact
+32. Checking the entered data after creating a Lead
+33. Pressing the Save button without entering data in the Contact fields
+34. Pressing the Save button without entering data in the Lead fields

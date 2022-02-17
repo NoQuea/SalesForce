@@ -8,11 +8,13 @@ import lombok.extern.log4j.Log4j2;
 import models.Account;
 import models.Contact;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 @Log4j2
 public class ContactModalPage extends BasePage {
 
     public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'slds-modal__title slds-hyphenate slds-text-heading--medium')]");
+    public static final By ERROR_ICON = By.xpath("//lightning-icon[contains(@title,'Error')]//lightning-primitive-icon//*[name()='svg']");
 
 
     public ContactModalPage(WebDriver driver) {
@@ -58,5 +60,16 @@ public class ContactModalPage extends BasePage {
         driver.findElement(SAVE_BUTTON).click();
         return new ContactDetailsPage(driver);
     }
-
+    @Step("Getting Error Massage after click Save button")
+    public boolean getErrorMassage(){
+        log.info("Getting Error Massage after click Save button");
+        return driver.findElement(ERROR_ICON).isDisplayed();
+    }
+    @Step("Clicking on the Save button")
+    public void clickSaveForError(){
+        log.info("Clicking on the Save button");
+        driver.findElement(SAVE_BUTTON).click();
+//        JavascriptExecutor executor = (JavascriptExecutor)driver;
+//        executor.executeScript("arguments[0].click();", driver.findElement(SAVE_BUTTON));
+    }
 }
