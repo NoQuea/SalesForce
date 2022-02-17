@@ -48,11 +48,11 @@ public class DropDown extends BaseElements{
     public void selectOptionContactAndLead(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))));
-        JavascriptExecutor js1 = (JavascriptExecutor) driver;
-        js1.executeScript("window.scrollBy(0,350)", "");
+//        JavascriptExecutor js1 = (JavascriptExecutor) driver;
+//        js1.executeScript("window.scrollBy(0,250)", "");
         driver.findElement(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))).click();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,350)", "");
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0,350)", "");
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForContactsAndLeads, option))).click();
     }
     public void selectOptionForContactsAccountNameAndReportsTo(String option) {

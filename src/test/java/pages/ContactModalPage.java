@@ -29,8 +29,8 @@ public class ContactModalPage extends BasePage {
     @Step("Entering data in the Contact fields")
     public ContactDetailsPage create(Contact contact)  {
         log.info("Entering data in the Contact fields");
-        new Input(driver, "Last Name").writeContactAndLead(contact.getLastName());
         new DropDown(driver, "Salutation").selectOptionContactAndLead(contact.getSalutation());
+        new Input(driver, "Last Name").writeContactAndLead(contact.getLastName());
         new Input(driver, "First Name").writeContactAndLead(contact.getFirstName());
         new Input(driver, "Middle Name").writeContactAndLead(contact.getMiddleName());
         new Input(driver, "Suffix").writeContactAndLead(contact.getSuffix());
