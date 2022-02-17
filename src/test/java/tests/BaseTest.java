@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -34,7 +33,12 @@ public abstract class BaseTest {
     LeadModalPage leadModalPage;
     LeadDetailsPage leadDetailsPage;
     ForgotYourPasswordPage forgotYourPasswordPage;
-    ViewProfilePage viewProfilePage;
+    ViewProfileModalPage viewProfileModalPage;
+    NotificationsModalPage notificationsModalPage;
+    SetupModalPage setupModalPage;
+    SalesforceHelpModalPage salesforceHelpModalPage;
+    LearningPathsModalPage learningPathsModalPage;
+    GlobalActionsModalPage globalActionsModalPage;
     SettingsPage settingsPage;
     String email, password;
 
@@ -61,7 +65,12 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver);
         homeSalesPage = new HomeSalesPage(driver);
         forgotYourPasswordPage = new ForgotYourPasswordPage(driver);
-        viewProfilePage = new ViewProfilePage(driver);
+        viewProfileModalPage = new ViewProfileModalPage(driver);
+        notificationsModalPage = new NotificationsModalPage(driver);
+        setupModalPage = new SetupModalPage(driver);
+        salesforceHelpModalPage = new SalesforceHelpModalPage(driver);
+        learningPathsModalPage = new LearningPathsModalPage(driver);
+        globalActionsModalPage = new GlobalActionsModalPage(driver);
         settingsPage = new SettingsPage(driver);
 
         accountListPage = new AccountListPage(driver);
