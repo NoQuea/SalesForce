@@ -9,9 +9,9 @@ public class OpportunitiesFactory {
     public static Opportunities get(){
         return Opportunities.builder()
                 .opportunityName(faker.name().name())
-                .accountName("TestAccountCheck")
                 .closeDate("today")
                 .stage("Proposal")
+                .accountName("TestAccountCheck")
                 .build();
     }
 }

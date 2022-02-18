@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class OpportunitiesDetailsPage extends BasePage{
     String fieldValue = "//span[text()='%s']//ancestor::div[contains(@class, 'slds-form-element_edit')]//span[contains(@class, 'static slds-grow word-break')]";
-    String fieldValueForAccountNameAndReportsTo = "//span[text()='%s']//ancestor::div[@class='slds-grid slds-size_1-of-1 label-inline']//a//span";
+    String fieldValueForAccountName = "//span[text()='%s']//ancestor::div[@class='slds-grid slds-size_1-of-1 label-inline']//a//span";
 
     public OpportunitiesDetailsPage(WebDriver driver) {
         super(driver);
@@ -26,7 +26,7 @@ public class OpportunitiesDetailsPage extends BasePage{
     public String getFieldByName(String fieldName) {
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
-    public String getFieldByAccAndRep(String fieldName) {
-        return driver.findElement(By.xpath(String.format(fieldValueForAccountNameAndReportsTo, fieldName))).getText();
+    public String getFieldAccountName(String fieldName) {
+        return driver.findElement(By.xpath(String.format(fieldValueForAccountName, fieldName))).getText();
     }
 }

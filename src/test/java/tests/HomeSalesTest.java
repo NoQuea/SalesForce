@@ -81,7 +81,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
 
-        homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickLearningPaths();
         assertTrue(learningPathsModalPage.isPageOpen(), "Learning Paths modal page doesn't open");
     }

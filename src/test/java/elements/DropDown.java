@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,7 +31,7 @@ public class DropDown extends BaseElements{
     public DropDown(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
-        wait = new WebDriverWait(driver,3);
+        wait = new WebDriverWait(driver,5);
     }
 
     public void selectOption(String option) {
@@ -49,13 +50,13 @@ public class DropDown extends BaseElements{
     public void selectOptionContactAndLead(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))));
-//        JavascriptExecutor js1 = (JavascriptExecutor) driver;
-//        js1.executeScript("window.scrollBy(0,250)", "");
         driver.findElement(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))).click();
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForContactsAndLeads, option))).click();
     }
     public void selectOptionForAccountNameAndReportsTo(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))).click();
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForAccountNameAndReportsTo, option))).click();
     }

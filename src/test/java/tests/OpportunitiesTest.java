@@ -32,8 +32,8 @@ public class OpportunitiesTest extends BaseTest{
 
         assertTrue(isOpportunitiesPageOpen, "Details page wasn't opened");
 
-        assertEquals(opportunitiesDetailsPage.getFieldByAccAndRep("Opportunity Name"), opportunities.getOpportunityName(), "");
-        assertEquals(opportunitiesDetailsPage.getFieldByName("Account Name"), opportunities.getAccountName(), "");
+        assertEquals(opportunitiesDetailsPage.getFieldByName("Opportunity Name"), opportunities.getOpportunityName(), "");
+        assertEquals(opportunitiesDetailsPage.getFieldAccountName("Account Name"), opportunities.getAccountName(), "");
         assertEquals(opportunitiesDetailsPage.getFieldByName("Close Date"), opportunities.getCloseDate(), "");
         assertEquals(opportunitiesDetailsPage.getFieldByName("Stage"), opportunities.getStage(), "");
 
