@@ -2,7 +2,10 @@ package pages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public abstract class BasePage {
@@ -12,8 +15,10 @@ public abstract class BasePage {
     public static final By SAVE_BUTTON = By.xpath("//button[text()='Save']");
     public static final By DETAILS_LINK = By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//li[@title='Details']");
 
+
     WebDriver driver;
     WebDriverWait wait;
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -24,6 +29,7 @@ public abstract class BasePage {
 
     protected boolean isExist(By locator){
         try {
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             return driver.findElement(locator).isDisplayed();
         } catch (NoSuchElementException ex){
             System.out.println(">>> !!! " + ex.getMessage());

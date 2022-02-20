@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Test suite" parallel="tests">
 
-    <test name="test 1">
-        <parameter name="browser" value="edge"/>
+    <test name="Login tests">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LoginTest">
                 <methods>
@@ -17,9 +17,10 @@
     </test>
 
     <test name="test 2">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="edge"/>
         <classes>
             <class name="tests.AccountTest"/>
+            <class name="tests.OpportunitiesTest"/>
         </classes>
     </test>
 
@@ -27,17 +28,12 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.ContactTest"/>
-        </classes>
-    </test>
-
-    <test name="test 4">
-        <parameter name="browser" value="edge"/>
-        <classes>
             <class name="tests.LeadTest"/>
         </classes>
     </test>
 
-    <test name="test 5">
+
+    <test name="test 4">
         <parameter name="browser" value="edge"/>
         <classes>
             <class name="tests.HomeSalesTest"/>

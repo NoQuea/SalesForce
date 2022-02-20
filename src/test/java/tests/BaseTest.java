@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -31,16 +32,31 @@ public abstract class BaseTest {
     LeadListPage leadListPage;
     LeadModalPage leadModalPage;
     LeadDetailsPage leadDetailsPage;
+    OpportunitiesListPage opportunitiesListPage;
+    OpportunitiesModalPage opportunitiesModalPage;
+    OpportunitiesDetailsPage opportunitiesDetailsPage;
     ForgotYourPasswordPage forgotYourPasswordPage;
-    ViewProfilePage viewProfilePage;
+    ViewProfileModalPage viewProfileModalPage;
+    NotificationsModalPage notificationsModalPage;
+    SetupModalPage setupModalPage;
+    SalesforceHelpModalPage salesforceHelpModalPage;
+    LearningPathsModalPage learningPathsModalPage;
+    CalendarModalPage calendarModalPage;
+    DashboardsModalPage dashboardsModalPage;
+    FilesModelPage filesModelPage;
+    ForecastsModalPage forecastsModalPage;
+    GroupsModalPage groupsModalPage;
+    NotesModalPage notesModalPage;
+    ReportsModalPage reportsModalPage;
+    TasksModalPage tasksModalPage;
     SettingsPage settingsPage;
     String email, password, baseUrl;
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp (ITestContext context, @Optional("chrome") String browser) {
+    public void setUp(ITestContext context, @Optional("chrome") String browser) {
 //        options.addArguments("--headless");
-        log.info("start test");
+        log.info("Start test");
         log.info(browser);
 
         if (browser.contains("chrome")) {
@@ -48,6 +64,7 @@ public abstract class BaseTest {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
 
         } else if (browser.contains("edge")) {
@@ -59,7 +76,19 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver);
         homeSalesPage = new HomeSalesPage(driver);
         forgotYourPasswordPage = new ForgotYourPasswordPage(driver);
-        viewProfilePage = new ViewProfilePage(driver);
+        viewProfileModalPage = new ViewProfileModalPage(driver);
+        notificationsModalPage = new NotificationsModalPage(driver);
+        setupModalPage = new SetupModalPage(driver);
+        salesforceHelpModalPage = new SalesforceHelpModalPage(driver);
+        learningPathsModalPage = new LearningPathsModalPage(driver);
+        calendarModalPage = new CalendarModalPage(driver);
+        dashboardsModalPage = new DashboardsModalPage(driver);
+        filesModelPage = new FilesModelPage(driver);
+        forecastsModalPage = new ForecastsModalPage(driver);
+        groupsModalPage = new GroupsModalPage(driver);
+        notesModalPage = new NotesModalPage(driver);
+        reportsModalPage = new ReportsModalPage(driver);
+        tasksModalPage = new TasksModalPage(driver);
         settingsPage = new SettingsPage(driver);
 
         accountListPage = new AccountListPage(driver);
@@ -74,6 +103,10 @@ public abstract class BaseTest {
         leadListPage = new LeadListPage(driver);
         leadModalPage = new LeadModalPage(driver);
 
+        opportunitiesListPage = new OpportunitiesListPage(driver);
+        opportunitiesModalPage = new OpportunitiesModalPage(driver);
+        opportunitiesDetailsPage = new OpportunitiesDetailsPage(driver);
+
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
 
@@ -84,7 +117,8 @@ public abstract class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown () {
+    public void tearDown() {
+        log.info("Close browser");
         driver.quit();
     }
 }
