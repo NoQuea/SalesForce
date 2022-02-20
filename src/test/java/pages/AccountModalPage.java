@@ -15,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 @Log4j2
 public class AccountModalPage extends BasePage{
 
-    public static final By MODAL_TITLE = By.xpath("//span[normalize-space()='Account Information']");
+    public static final By MODAL_TITLE = By.xpath("//span[@class='slds-var-p-right_x-small']");
     public static final By GENERIC_ERROR_AFTER_SAVE = By.xpath("//span[@class='genericError uiOutputText']");
 
     public AccountModalPage(WebDriver driver) {
