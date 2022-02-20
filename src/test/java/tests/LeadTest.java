@@ -50,4 +50,23 @@ public class LeadTest extends BaseTest {
                 "Адресс неверный");
 
     }
+
+    @Test(description = "Press the save button without entering data in the Leads fields")
+    public void pressTheSaveButtonWithoutEnteringDataInTheLeadsFields() {
+
+        loginPage.open();
+        loginPage.login(email, password);
+
+
+        boolean isLeadModalOpen = leadListPage
+                .open()
+                .clickNew()
+                .isPageOpen();
+        assertTrue(isLeadModalOpen, "Pop up wasn't opened");
+
+        leadModalPage.clickSaveForError();
+        assertTrue(leadModalPage.getErrorMassage(), "Massage is not corrert");
+
+
+    }
 }

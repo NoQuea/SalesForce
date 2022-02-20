@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-public class ViewProfilePage extends BasePage{
+public class ViewProfileModalPage extends BasePage{
 
     public static final By LOG_OUT_LINK = By.xpath("//a[normalize-space()='Log Out']");
     public static final By SETTINGS_LINK = By.xpath("//a[normalize-space()='Settings']");
@@ -14,7 +14,7 @@ public class ViewProfilePage extends BasePage{
     public static final By COMPACT_BUTTON = By.xpath("//button[@name='Compact']");
 
 
-    public ViewProfilePage(WebDriver driver) {
+    public ViewProfileModalPage(WebDriver driver) {
         super(driver);
     }
 
@@ -36,15 +36,4 @@ public class ViewProfilePage extends BasePage{
         driver.findElement(LOG_OUT_LINK).click();
     }
 
-    @Step("Click on the 'Comfy' button")
-    public void clickComfyButton(){
-        log.info("Click on the 'Comfy' button");
-        driver.findElement(COMFY_BUTTON).click();
-    }
-
-    @Step("Click on the 'Compact' button")
-    public void clickCompactButton(){
-        log.info("Click on the 'Compact' button");
-        driver.findElement(COMPACT_BUTTON).click();
-    }
 }
