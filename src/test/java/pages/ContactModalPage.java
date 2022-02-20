@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class ContactModalPage extends BasePage {
 
-    public static final By MODAL_TITLE = By.xpath("//*[contains(@class, 'slds-modal__title slds-hyphenate slds-text-heading--medium')]");
+    public static final By MODAL_TITLE = By.xpath("//span[@class='slds-var-p-right_x-small']");
     public static final By ERROR_ICON = By.xpath("//lightning-icon[contains(@title,'Error')]//lightning-primitive-icon//*[name()='svg']");
 
 

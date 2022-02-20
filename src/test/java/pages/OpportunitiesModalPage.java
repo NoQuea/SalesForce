@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class OpportunitiesModalPage extends BasePage{
 
-    public static final By MODAL_TITLE = By.xpath("//a//span[normalize-space()='Opportunities']");
+    public static final By MODAL_TITLE = By.xpath("//span[@class='slds-var-p-right_x-small']");
 
 
     public OpportunitiesModalPage(WebDriver driver) {

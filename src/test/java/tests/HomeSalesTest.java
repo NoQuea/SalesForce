@@ -86,14 +86,16 @@ public class HomeSalesTest extends BaseTest {
     }
 
     @Test
-    public void calendar() {
+    public void clickOnAllLinksOnNavBarBeforeDashboards() {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
 
-        homeSalesPage.clickThis();
-
+        homeSalesPage.clickLink("Calendar");
+        assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
+        homeSalesPage.clickLink("Opportunities");
         assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
     }
+
 
 }
