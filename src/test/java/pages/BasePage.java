@@ -14,11 +14,11 @@ public abstract class BasePage {
     public static final By SAVE_ACCOUNT_BUTTON = By.xpath("//button[@title='Save']");
     public static final By SAVE_BUTTON = By.xpath("//button[text()='Save']");
     public static final By DETAILS_LINK = By.xpath("//div[@class='windowViewMode-normal oneContent active lafPageHost']//li[@title='Details']");
+    public static String baseUrl;
 
 
     WebDriver driver;
     WebDriverWait wait;
-
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

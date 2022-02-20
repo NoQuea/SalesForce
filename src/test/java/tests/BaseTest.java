@@ -50,7 +50,7 @@ public abstract class BaseTest {
     ReportsModalPage reportsModalPage;
     TasksModalPage tasksModalPage;
     SettingsPage settingsPage;
-    String email, password, baseUrl;
+    String email, password;
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
@@ -110,7 +110,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
 
-        baseUrl = System.getenv().getOrDefault("SALESFORCE_URL", PropertyReader.getProperty("salesforce.url"));
+        BasePage.baseUrl = System.getenv().getOrDefault("SALESFORCE_URL", PropertyReader.getProperty("salesforce.url"));
         email = System.getenv().getOrDefault("SALESFORCE_EMAIL", PropertyReader.getProperty("salesforce.email"));
         password = System.getenv().getOrDefault("SALESFORCE_PASSWORD", PropertyReader.getProperty("salesforce.password"));
 
