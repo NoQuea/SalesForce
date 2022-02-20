@@ -57,7 +57,7 @@ public abstract class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(ITestContext context, @Optional("chrome") String browser) {
 //        options.addArguments("--headless");
-        log.info("start test");
+        log.info("Start test");
         log.info(browser);
 
         if (browser.contains("chrome")) {
@@ -65,7 +65,7 @@ public abstract class BaseTest {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             options.addArguments("--disable-popup-blocking");
-            options.addArguments("disable-notifications");
+            options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
 
         } else if (browser.contains("edge")) {
@@ -119,6 +119,7 @@ public abstract class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
+        log.info("Close browser");
         driver.quit();
     }
 }
