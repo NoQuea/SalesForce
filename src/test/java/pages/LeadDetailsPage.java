@@ -29,7 +29,7 @@ public class LeadDetailsPage extends BasePage{
     }
     @Step("Replacing words in fields")
     public String getFieldByName(String fieldName) {
-        log.info("Values are substituted in string format: {fieldName}");
+        log.info("Values are substituted in string format" + fieldName);
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 }

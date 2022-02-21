@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.HomeSalesPage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -69,8 +68,8 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
-
         homeSalesPage.closeSubscribeButton();
+
         homeSalesPage.clickSalesforceHelp();
         assertTrue(salesforceHelpModalPage.isPageOpen(), "Salesforce Help modal page doesn't open");
     }
@@ -80,13 +79,14 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
+        homeSalesPage.closeSubscribeButton();
 
         homeSalesPage.clickLearningPaths();
-        assertTrue(learningPathsModalPage.isPageOpen(), "Learning Paths modal page doesn't open");
+        assertEquals(learningPathsModalPage.getText(), "Learning Paths", "Learning Paths modal page doesn't open");
     }
 
     @Test
-    public void clickOnAllLinksOnNavBarBeforeDashboards() {
+    public void clickOnCalendarOpportunitiesTasksLinks() {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
@@ -94,8 +94,37 @@ public class HomeSalesTest extends BaseTest {
         homeSalesPage.clickLink("Calendar");
         assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
         homeSalesPage.clickLink("Opportunities");
-        assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
+        assertTrue(opportunitiesModalPage.isPageOpen(), "Opportunities modal page doesn't open");
+        homeSalesPage.clickLink("Tasks");
+        assertTrue(tasksModalPage.isPageOpen(), "Tasks modal page doesn't open");
+
     }
 
+    @Test
+    public void clickOnDashboardsNotesReportsGroupsLinks() {
+        loginPage.open();
+        loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
+        homeSalesPage.closeSubscribeButton();
+
+        homeSalesPage.clickLink("Dashboards");
+        assertTrue(dashboardsModalPage.isPageOpen(), "Calendar modal page doesn't open");
+        homeSalesPage.clickLink("Notes");
+        assertTrue(reportsModalPage.isPageOpen(), "Reports modal page doesn't open");
+        homeSalesPage.clickLink("Groups");
+        assertTrue(groupsModalPage.isPageOpen(), "Groups modal page doesn't open");
+    }
+
+    @Test
+    public void clickOnReportsLinks() {
+        loginPage.open();
+        loginPage.login(email, password);
+        homeSalesPage.isPageOpen();
+
+        homeSalesPage.clickLink("Reports");
+        assertTrue(reportsModalPage.isPageOpen(), "Reports modal page doesn't open");
+
+
+    }
 
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LearningPathsModalPage extends BasePage {
 
-    public static final By MODAL_TITLE = By.xpath("//div[contains(@class, 'sidebarHeader')]/h2");
+    public static final By MODAL_TITLE = By.xpath("//h2[text()='Learning Paths']");
 
     public LearningPathsModalPage(WebDriver driver) {
         super(driver);
@@ -14,5 +14,9 @@ public class LearningPathsModalPage extends BasePage {
     @Override
     public boolean isPageOpen() {
         return isExist(MODAL_TITLE);
+    }
+
+    public String getText(){
+        return driver.findElement(MODAL_TITLE).getText();
     }
 }

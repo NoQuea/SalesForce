@@ -57,7 +57,9 @@ public class HomeSalesPage extends BasePage {
     }
 
     public void clickLearningPaths() {
-        driver.findElement(LEARNING_PATHS).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LEARNING_PATHS));
+        Actions actions = new Actions(driver);
+        actions.click(driver.findElement(LEARNING_PATHS)).build().perform();
     }
 
     public void closeSubscribeButton() {
