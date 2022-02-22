@@ -15,6 +15,7 @@ public class CalendarModalPage extends BasePage{
 
     @Override
     public boolean isPageOpen() {
+
         return isExist(MODAL_TITLE);
     }
 

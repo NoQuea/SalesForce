@@ -63,7 +63,7 @@ public class HomeSalesPage extends BasePage {
     }
 
     public void closeSubscribeButton() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CLOSE_SUBSCRIBE_BUTTON));
         driver.findElement(CLOSE_SUBSCRIBE_BUTTON).click();
     }
     public void clickLink(String label){
