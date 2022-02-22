@@ -3,6 +3,7 @@ package pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -29,7 +30,7 @@ public abstract class BasePage {
 
     protected boolean isExist(By locator){
         try {
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return driver.findElement(locator).isDisplayed();
         } catch (NoSuchElementException ex){
             System.out.println(">>> !!! " + ex.getMessage());

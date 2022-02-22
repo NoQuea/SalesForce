@@ -4,6 +4,8 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 @Log4j2
 public class AccountDetailsPage extends BasePage {
 
@@ -28,11 +30,13 @@ public class AccountDetailsPage extends BasePage {
     }
 
     public String getFieldByName(String fieldName) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(fieldValue, fieldName))));
         return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 
     public String getFieldByParent(String fieldName) {
-        return driver.findElement(By.xpath(String.format(fieldValueParent, fieldName))).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(fieldValue, fieldName))));
+        return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
     }
 
 }
