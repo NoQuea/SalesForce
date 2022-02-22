@@ -15,6 +15,7 @@ public class OpportunitiesTest extends BaseTest{
     public void opportunitiesShouldBeCreated()  {
         loginPage.open();
         loginPage.login(email, password);
+        homeSalesPage.closeSubscribeButton();
 
         boolean isOpportunitiesModalPage = opportunitiesListPage
                 .open()
@@ -34,7 +35,7 @@ public class OpportunitiesTest extends BaseTest{
 
         assertEquals(opportunitiesDetailsPage.getFieldByName("Opportunity Name"), opportunities.getOpportunityName(), "");
         assertEquals(opportunitiesDetailsPage.getFieldAccountName("Account Name"), opportunities.getAccountName(), "");
-        assertEquals(opportunitiesDetailsPage.getFieldByName("Close Date"), opportunities.getCloseDate(), "");
+        assertEquals(opportunitiesDetailsPage.getFieldByName("Close Date"), opportunitiesDetailsPage.getDay(), "");
         assertEquals(opportunitiesDetailsPage.getFieldByName("Stage"), opportunities.getStage(), "");
 
     }

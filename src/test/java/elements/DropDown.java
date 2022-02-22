@@ -36,7 +36,9 @@ public class DropDown extends BaseElements{
 
     public void selectOption(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocator, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocator, this.label))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(optionsLocator, option))));
         driver.findElement(By.xpath(String.format(optionsLocator, option))).click();
     }
 
@@ -44,6 +46,7 @@ public class DropDown extends BaseElements{
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorParentAccount, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocatorParentAccount, this.label))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(optionsLocatorParentAccount, option))));
         driver.findElement(By.xpath(String.format(optionsLocatorParentAccount, option))).click();
     }
 
@@ -51,13 +54,15 @@ public class DropDown extends BaseElements{
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocatorForContactsAndLeads, this.label))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(optionsDropDownLocatorForContactsAndLeads, option))));
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForContactsAndLeads, option))).click();
     }
     public void selectOptionForAccountNameAndReportsTo(String option) {
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))));
+
         driver.findElement(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(optionsDropDownLocatorForAccountNameAndReportsTo, option))));
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForAccountNameAndReportsTo, option))).click();
     }
 
@@ -65,6 +70,7 @@ public class DropDown extends BaseElements{
         System.out.printf("Select option '%s' into dropdown with label '%s' \n", option, this.label);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))));
         driver.findElement(By.xpath(String.format(dropDownLocatorForAccountNameAndReportsToAndDate, this.label))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(optionsDropDownLocatorForDate, option))));
         driver.findElement(By.xpath(String.format(optionsDropDownLocatorForDate, option))).click();
     }
 }
