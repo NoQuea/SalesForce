@@ -15,7 +15,6 @@ public class OpportunitiesTest extends BaseTest{
     public void opportunitiesShouldBeCreated()  {
         loginPage.open();
         loginPage.login(email, password);
-        homeSalesPage.closeSubscribeButton();
 
         boolean isOpportunitiesModalPage = opportunitiesListPage
                 .open()

@@ -2,11 +2,8 @@ package pages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 
 @Log4j2
 public abstract class BasePage {
@@ -23,14 +20,13 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 13);
+        wait = new WebDriverWait(driver, 15);
     }
 
     public abstract boolean isPageOpen();
 
     protected boolean isExist(By locator){
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return driver.findElement(locator).isDisplayed();
         } catch (NoSuchElementException ex){
             System.out.println(">>> !!! " + ex.getMessage());

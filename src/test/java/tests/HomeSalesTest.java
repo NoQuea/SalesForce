@@ -47,7 +47,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
 
-        homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickNotifications();
         assertTrue(notificationsModalPage.isPageOpen(), "Notifications modal page doesn't open");
     }
@@ -58,7 +57,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
 
-        homeSalesPage.closeSubscribeButton();
         homeSalesPage.clickSetup();
         assertTrue(setupModalPage.isPageOpen(), "Setup modal page doesn't open");
     }
@@ -68,7 +66,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
-        homeSalesPage.closeSubscribeButton();
 
         homeSalesPage.clickSalesforceHelp();
         assertTrue(salesforceHelpModalPage.isPageOpen(), "Salesforce Help modal page doesn't open");
@@ -79,7 +76,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
-        homeSalesPage.closeSubscribeButton();
 
         homeSalesPage.clickLearningPaths();
         assertEquals(learningPathsModalPage.getText(), "Learning Paths", "Learning Paths modal page doesn't open");
@@ -90,7 +86,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
-        homeSalesPage.closeSubscribeButton();
 
         homeSalesPage.clickLink("Calendar");
         assertTrue(calendarModalPage.isPageOpen(), "Calendar modal page doesn't open");
@@ -106,7 +101,6 @@ public class HomeSalesTest extends BaseTest {
         loginPage.open();
         loginPage.login(email, password);
         homeSalesPage.isPageOpen();
-        homeSalesPage.closeSubscribeButton();
 
         homeSalesPage.clickLink("Dashboards");
         assertTrue(dashboardsModalPage.isPageOpen(), "Calendar modal page doesn't open");

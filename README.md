@@ -28,8 +28,8 @@
 22. Checking the clickability of the "Groups" hyperlink<br/>
 23. Checking the clickability of the "Forecasts" hyperlink<br/>
 24. Checking the clickability of the "Files" hyperlink<br/>
-25. Create an account by filling in all fields(Pre-create a "test" account)<br/>
-26. Create a contact by filling in all fields(Pre-create a "test" account, and a "TestAccountCheck" contact)<br/>
+25. Create an account by filling in all fields(Pre-create a "TestAccountCheck" parent account)<br/>
+26. Create a contact by filling in all fields(Pre-create a "TestAccountCheck" account, and a "Test" contact)<br/>
 27. Create a lead by filling in all fields<br/>
 28. Create an opportunities by filling in the required fields
 29. Going to the Details page after creating an Account

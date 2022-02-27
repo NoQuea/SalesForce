@@ -35,8 +35,8 @@ public class AccountDetailsPage extends BasePage {
     }
 
     public String getFieldByParent(String fieldName) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(fieldValue, fieldName))));
-        return driver.findElement(By.xpath(String.format(fieldValue, fieldName))).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(fieldValueParent, fieldName))));
+        return driver.findElement(By.xpath(String.format(fieldValueParent, fieldName))).getText();
     }
 
 }
