@@ -32,19 +32,19 @@ public class AccountTest extends BaseTest {
 
         assertTrue(isDetailsPageOpen, "Details page wasn't opened");
 
-        assertEquals(accountDetailsPage.getFieldByName("Account Name"),account.getAccountName(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Website"),account.getWebSite(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Type"),account.getType(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Phone"),account.getPhone(),"");
-        assertEquals(accountDetailsPage.getFieldByParent("Parent Account"),account.getParentAccount(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Employees"),account.getEmployees(),"");
-        assertEquals(accountDetailsPage.getFieldByName("Industry"),account.getIndustry(),"");
+        assertEquals(accountDetailsPage.getFieldByName("Account Name"),account.getAccountName(),"Account Name is not correct");
+        assertEquals(accountDetailsPage.getFieldByName("Website"),account.getWebSite(),"Website is not correct");
+        assertEquals(accountDetailsPage.getFieldByName("Type"),account.getType(),"Type is not correct");
+        assertEquals(accountDetailsPage.getFieldByName("Phone"),account.getPhone(),"Phone is not correct");
+        assertEquals(accountDetailsPage.getFieldByParent("Parent Account"),account.getParentAccount(),"Parent Account is not correct");
+        assertEquals(accountDetailsPage.getFieldByName("Employees"),account.getEmployees(),"Employees is not correct");
+        assertEquals(accountDetailsPage.getFieldByName("Industry"),account.getIndustry(),"Industry is not correct");
         assertEquals(accountDetailsPage.getFieldByName("Billing Address"),
                 String.format(account.getBillingStreet() + "\n" + account.getBillingCity() + ", " + account.getBillingState() + " " + account.getBillingZip() + "\n" + account.getBillingCountry()),
-                "Адресс неверный");
+                "Billing Address is not correct");
         assertEquals(accountDetailsPage.getFieldByName("Shipping Address"),
                 String.format(account.getShippingStreet() + "\n" + account.getShippingCity() + ", " + account.getShippingState() + " " + account.getShippingZip() + "\n" + account.getShippingCountry()),
-                "Адресс неверный");
+                "Shipping Address is not correct");
 
     }
 

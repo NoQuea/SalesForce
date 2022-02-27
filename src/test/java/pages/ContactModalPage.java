@@ -31,10 +31,10 @@ public class ContactModalPage extends BasePage {
     @Step("Entering data in the Contact fields")
     public ContactDetailsPage create(Contact contact)  {
         log.info("Entering data in the Contact fields");
-        new DropDown(driver, "Salutation").selectOptionContactAndLead(contact.getSalutation());
         new Input(driver, "Last Name").write(contact.getLastName());
         new Input(driver, "First Name").write(contact.getFirstName());
         new Input(driver, "Middle Name").write(contact.getMiddleName());
+        new DropDown(driver, "Salutation").selectOptionContactAndLead(contact.getSalutation());
         new Input(driver, "Suffix").write(contact.getSuffix());
         new DropDown(driver, "Account Name").selectOptionForAccountNameAndReportsTo(contact.getAccountName());
         new Input(driver, "Title").write(contact.getTitle());

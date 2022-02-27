@@ -12,6 +12,7 @@ public class OpportunitiesFactory {
                 .closeDate("today")
                 .stage("Proposal")
                 .accountName("TestAccountCheck")
+                .nextStep(faker.name().name())
                 .build();
     }
 }

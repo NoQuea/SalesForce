@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LearningPathsModalPage extends BasePage {
 
-    public static final By MODAL_TITLE = By.xpath("//h2[text()='Learning Paths']");
+    public static final By MODAL_TITLE = By.xpath("//div/ancestor::section//h2[text()='Learning Paths']");
 
     public LearningPathsModalPage(WebDriver driver) {
         super(driver);

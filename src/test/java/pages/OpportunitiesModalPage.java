@@ -30,6 +30,7 @@ public class OpportunitiesModalPage extends BasePage{
         log.info("Entering data in the Contact fields");
 
         new Input(driver, "Opportunity Name").write(opportunities.getOpportunityName());
+        new Input(driver, "Next Step").write(opportunities.getNextStep());
         new DropDown(driver, "Account Name").selectOptionForAccountNameAndReportsTo(opportunities.getAccountName());
         new DropDown(driver, "Close Date").selectOptionForDate(opportunities.getCloseDate());
         new DropDown(driver, "Stage").selectOptionContactAndLead(opportunities.getStage());

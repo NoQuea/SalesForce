@@ -22,7 +22,7 @@ public class HomeSalesPage extends BasePage {
     public static final By SALESFORCE_HELP = By.xpath("//span[@role='tooltip'][text()='Salesforce Help']//ancestor::li");
     public static final By LEARNING_PATHS = By.xpath("//span[@role='tooltip'][text()='Learning Paths']//ancestor::li");
     public static final By CLOSE_SUBSCRIBE_BUTTON = By.xpath("//section[@role='dialog']/button");
-    String linkNavBar = "//a[@title='%s']";
+    String linkNavBar = "//one-app-nav-bar-item-root/ancestor::one-app-nav-bar//a[@title='%s']";
 
     public HomeSalesPage(WebDriver driver) {
         super(driver);

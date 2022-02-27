@@ -31,23 +31,23 @@ public class LeadTest extends BaseTest {
 
         assertTrue(isDetailsPageOpen, "Details page wasn't opened");
 
-        assertEquals(leadDetailsPage.getFieldByName("Lead Status"), lead.getLeadStatus(), "");
+        assertEquals(leadDetailsPage.getFieldByName("Lead Status"), lead.getLeadStatus(), "Lead Status is not correct");
         assertEquals(leadDetailsPage.getFieldByName("Name"),
                 String.format(lead.getSalutation() + " " + lead.getFirstName() + " " + lead.getMiddleName() + " " + lead.getLastName() + " " + lead.getSuffix()),
                 "Name is not correct");
-        assertEquals(leadDetailsPage.getFieldByName("Title"), lead.getTitle(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Email"), lead.getEmail(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Phone"), lead.getPhone(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Mobile"), lead.getMobile(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Rating"), lead.getRating(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Website"), lead.getWebSite(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Company"), lead.getCompany(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Industry"), lead.getIndustry(), "");
-        assertEquals(leadDetailsPage.getFieldByName("No. of Employees"), lead.getNoOfEmployees(), "");
-        assertEquals(leadDetailsPage.getFieldByName("Lead Source"), lead.getLeadSource(), "");
+        assertEquals(leadDetailsPage.getFieldByName("Title"), lead.getTitle(), "Title is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Email"), lead.getEmail(), "Email is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Phone"), lead.getPhone(), "Phone is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Mobile"), lead.getMobile(), "Mobile is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Rating"), lead.getRating(), "Rating is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Website"), lead.getWebSite(), "Website is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Company"), lead.getCompany(), "Company is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Industry"), lead.getIndustry(), "Industry is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("No. of Employees"), lead.getNoOfEmployees(), "No. of Employees is not correct");
+        assertEquals(leadDetailsPage.getFieldByName("Lead Source"), lead.getLeadSource(), "Lead Source is not correct");
         assertEquals(leadDetailsPage.getFieldByName("Address"),
                 String.format(lead.getStreet() + "\n" + lead.getCity() + ", " + lead.getStateProvince() + " " + lead.getZipPostalCode() + "\n" + lead.getCountry()),
-                "Адресс неверный");
+                "Address is not correct");
 
     }
 
@@ -65,7 +65,7 @@ public class LeadTest extends BaseTest {
         assertTrue(isLeadModalOpen, "Pop up wasn't opened");
 
         leadModalPage.clickSaveForError();
-        assertTrue(leadModalPage.getErrorMassage(), "Massage is not corrert");
+        assertTrue(leadModalPage.getErrorMassage(), "Massage is not correct");
 
 
     }

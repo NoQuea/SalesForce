@@ -1,7 +1,5 @@
 package tests;
 
-import models.Contact;
-import models.ContactFactory;
 import models.Opportunities;
 import models.OpportunitiesFactory;
 import org.testng.annotations.Test;
@@ -32,10 +30,10 @@ public class OpportunitiesTest extends BaseTest{
 
         assertTrue(isOpportunitiesPageOpen, "Details page wasn't opened");
 
-        assertEquals(opportunitiesDetailsPage.getFieldByName("Opportunity Name"), opportunities.getOpportunityName(), "");
-        assertEquals(opportunitiesDetailsPage.getFieldAccountName("Account Name"), opportunities.getAccountName(), "");
-        assertEquals(opportunitiesDetailsPage.getFieldByName("Close Date"), opportunitiesDetailsPage.getDay(), "");
-        assertEquals(opportunitiesDetailsPage.getFieldByName("Stage"), opportunities.getStage(), "");
+        assertEquals(opportunitiesDetailsPage.getFieldByName("Opportunity Name"), opportunities.getOpportunityName(), "Opportunity Name is not correct");
+        assertEquals(opportunitiesDetailsPage.getFieldAccountName("Account Name"), opportunities.getAccountName(), "Account Name is not correct");
+        assertEquals(opportunitiesDetailsPage.getFieldByName("Close Date"), opportunitiesDetailsPage.getDay(), "Close Date is not correct");
+        assertEquals(opportunitiesDetailsPage.getFieldByName("Stage"), opportunities.getStage(), "Stage is not correct");
 
     }
 }

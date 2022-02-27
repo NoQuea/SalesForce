@@ -25,10 +25,4 @@ public class Input extends BaseElements{
         driver.findElement(By.xpath(String.format(inputLocator, this.label))).sendKeys(text);
     }
 
-//    public void selectOptionForParent(String option) {
-//        System.out.printf("Select option '%s' into input with label '%s' \n", option, this.label);
-//        driver.findElement(By.xpath(String.format(inputForParent, this.label))).click();
-//        driver.findElement(By.xpath(String.format(inputDownForParent, option))).click();
-//    }
-
 }

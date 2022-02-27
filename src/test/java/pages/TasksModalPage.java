@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class TasksModalPage extends BasePage{
 
 
-    public static final By MODAL_TITLE = By.xpath("//div[@class='entityNameTitle slds-line-height_reset']");
+    public static final By MODAL_TITLE = By.xpath("//div[contains(@class, 'slds-split-view__header')]//img");
 
 
     public TasksModalPage(WebDriver driver) {
