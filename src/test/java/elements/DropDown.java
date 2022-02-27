@@ -31,7 +31,7 @@ public class DropDown extends BaseElements{
     public DropDown(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
-        wait = new WebDriverWait(driver,5);
+        wait = new WebDriverWait(driver,20);
     }
 
     public void selectOption(String option) {
