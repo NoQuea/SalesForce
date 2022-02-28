@@ -61,7 +61,7 @@ public abstract class BaseTest {
         if (browser.contains("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            driver.manage().window().setSize(new Dimension(1920, 1080));
+            options.addArguments("--window-size=1920,1080");
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
 
