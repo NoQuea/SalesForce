@@ -54,13 +54,13 @@ public abstract class BaseTest {
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
     public void setUp(ITestContext context, @Optional("chrome") String browser) {
-//        options.addArguments("--headless");
         log.info("Start test");
         log.info(browser);
 
         if (browser.contains("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
