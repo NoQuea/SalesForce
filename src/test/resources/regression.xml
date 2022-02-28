@@ -36,8 +36,32 @@
     <test name="test 4">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.HomeSalesTest"/>
+            <class name="tests.HomeSalesTest">
+                <methods>
+                    <include name="viewProfileShouldBeOpened"/>
+                    <include name="enterUserSettings"/>
+                    <include name="clickOnCalendarLink"/>
+                    <include name="salesforceHelpShouldBeOpened"/>
+                    <include name="setupShouldBeOpened"/>
+                    <include name="notificationsShouldBeOpened"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
+    <test name="test 5">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.HomeSalesTest">
+                <methods>
+                    <include name="learningPathsShouldBeOpened"/>
+                    <include name="logOut"/>
+                    <include name="clickOnDashboardsNotesReportsGroupsLinks"/>
+                    <include name="clickOnReportsLink"/>
+                    <include name="clickOnOpportunitiesLink"/>
+                    <include name="clickOnTasksLink"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

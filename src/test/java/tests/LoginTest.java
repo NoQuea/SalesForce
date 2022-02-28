@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
         loginPage.isPageOpen();
         loginPage.login(email, "");
 
-        assertEquals(loginPage.getErrorMessage(), "Please enter your password.", "");
+        assertEquals(loginPage.getErrorMessage(), "Введите пароль.", "");
     }
 
     @Test(description = "Entering incorrect data")
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
         loginPage.isPageOpen();
         loginPage.login("awdsawd", "pas1123sword");
 
-        assertEquals(loginPage.getErrorMessage(), "Please check your username and password. If you still can't log in, contact your Salesforce administrator.", "");
+        assertEquals(loginPage.getErrorMessage(), "Проверьте имя пользователя и пароль. При неудачном входе обратитесь к администратору Salesforce.", "");
     }
 
     @Test(description = "Click on the link 'Forgot Your Password?' and check the transition to this page")
