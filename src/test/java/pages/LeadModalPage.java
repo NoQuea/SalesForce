@@ -28,8 +28,8 @@ public class LeadModalPage extends BasePage {
     public LeadDetailsPage create(Lead lead) {
         log.info("Entering data in the Lead fields");
         new DropDown(driver, "Lead Status").selectOptionContactAndLead(lead.getLeadStatus());
-        new DropDown(driver, "Salutation").selectOptionContactAndLead(lead.getSalutation());
         new Input(driver, "Last Name").write(lead.getLastName());
+        new DropDown(driver, "Salutation").selectOptionContactAndLead(lead.getSalutation());
         new Input(driver, "First Name").write(lead.getFirstName());
         new Input(driver, "Middle Name").write(lead.getMiddleName());
         new Input(driver, "Suffix").write(lead.getSuffix());
