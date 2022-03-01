@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 
 public class ContactTest extends BaseTest {
 
-    @Test(description = "The contact must be created and checked for compliance with the entered data")
+    @Test(description = "The contact must be created and checked for compliance with the entered data", retryAnalyzer = Retry.class)
     public void contactShouldBeCreated()  {
         loginPage.open();
         loginPage.login(email, password);
@@ -48,7 +48,7 @@ public class ContactTest extends BaseTest {
                 "Mailing Address is not correct");
     }
 
-    @Test(description = "Press the save button without entering data in the Contact fields")
+    @Test(description = "Press the save button without entering data in the Contact fields", retryAnalyzer = Retry.class)
     public void pressTheSaveButtonWithoutEnteringDataInTheContactFields() {
 
         loginPage.open();

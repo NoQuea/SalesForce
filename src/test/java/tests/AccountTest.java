@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 
 public class AccountTest extends BaseTest {
 
-    @Test(description = "The account must be created and checked for compliance with the entered data")
+    @Test(description = "The account must be created and checked for compliance with the entered data", retryAnalyzer = Retry.class)
     public void accountShouldBeCreated() {
 
         loginPage.open();

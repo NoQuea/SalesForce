@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 
 public class OpportunitiesTest extends BaseTest{
 
-    @Test(description = "The opportunities must be created and checked for compliance with the entered data")
+    @Test(description = "The opportunities must be created and checked for compliance with the entered data", retryAnalyzer = Retry.class)
     public void opportunitiesShouldBeCreated()  {
         loginPage.open();
         loginPage.login(email, password);
